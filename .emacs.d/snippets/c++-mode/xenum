@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: xenum
+# key: xenum
+# --
+enum ${1:$$(yas-choose-value '("struct" "class"))} ${2:name}${3: : type}
+{
+    $0
+};

@@ -1,0 +1,209 @@
+# -*- Mode: org ; Coding: utf-8-unix -*-
+# last updated : 2012/09/10.18:40:46
+
+
+#+TITLE:■■■　dot-emacs-files-package機能説明　■■■
+#+AUTHOR:    the author (default taken from user-full-name)
+#+EMAIL:     his/her email address (default from user-mail-address)
+#+LANGUAGE:  language for HTML, e.g. `en' (org-export-default-language)
+#+TEXT:      Some descriptive text to be inserted at the beginning.
+#+TEXT:      Several lines may be given.
+#+OPTIONS:   author:nil timestamp:t |:t \n:t ^:nil
+
+
+
+* 準備
+** 必要パッケージ一覧
+*** Cygwin 一式(必須)
+
+*** GNU GLOBAL(gtags)(必須)
+    http://uguisu.skr.jp/Windows/gtags.html
+
+*** TexLive 2011(texを利用する場合のみ)
+    - 本体
+      http://tug.org/texlive/
+      http://www.tug.org/texlive/acquire-netinstall.html
+    - nkf
+      http://sourceforge.jp/projects/nkf/
+    - latex -> pdf 日本語の扱いについて
+      http://hidefumi-h.blog.so-net.ne.jp/2011-11-18
+
+**** ISOイメージからのインストール
+     最も簡単で早い
+     http://tug.org/texlive/acquire-iso.html     
+
+**** ネットインストール＆アップデート
+***** Windowsプロキシ環境下でTeX Live を入れる場合は注意が必要
+      .wgetrc ファイルを作成して以下をペースト
+      http_proxy=http://proxy:8080/
+      ftp_proxy=http://proxy:8080/
+      use_proxy = on
+      
+      install-tl-2012mmdd\tlpkg\installer\wget\
+      以下にコピーする(HOMEでもよい)
+
+***** ダウンロード高速化（インストール＆アップデート両方）
+      一旦プロキシ設定を使わないコードでのダウンロードを試み、
+      失敗したあとでwgetを使ったダウンロードにフォールバックしているようで異常に時間がかかる
+      最初からwgetを利用させるには以下のコマンドで実行する
+      install-tl.bat --no-persistent-downloads
+
+      tlmgr のコマンドラインオプションも同様の指定が可能
+      - tlmgr 自身のアップデートは
+	tlmgr update --self -no-persistent-downloads
+      - 全てのパッケージをアップデート
+	tlmgr update --all -no-persistent-downloads
+
+
+* 初期設定
+** bash用設定ファイル
+   ~/.bashrc に以下を追加
+
+   if [ -f "${HOME}/.bashrc.default" ]; then
+       "." "${HOME}/.bashrc.default"
+   fi
+
+
+   ~/.bashrc.default
+   が読み込まれると、内部でさらに以下の順にファイルがロードされる
+   ~/.bashrc.global
+   ~/.bashrc.local  (optional)
+   ~/.bashrc.emacs
+   ~/.bashrc.vs2010
+
+   ローカル設定を追加する場合 .bashrc.local を作成しておくと自動で読み込まれる
+   他、個別環境を作成する場合は .bashrc.個別環境名 を作成して .bashrc.default にロードするように記述追加を行う
+
+
+** 環境変数
+    cygwin 使用時の注意
+
+*** LANG / LC_TIME / LC_ALL
+    export  LANG="ja_JP.UTF-8"
+    この設定の場合 find-name-dired を実行すると、結果リストに対して操作ができない(file openもできず)
+    ※ 原因：dired から使用される ls コマンドのリザルトにおいて日付が日本語化されてしまうため。
+
+    .bashrc.emacs で
+    export  LC_TIME="en_US.UTF-8"
+    にする事で回避している。
+    ※ LC_TIME は LANG より優先度が高いため。
+
+    export  LC_ALL
+    などを使用する場合は注意が必要
+    LC_ALL は全 LC_* 系最上位で、LC_ALL にセットした値は全 LC_* 系にセットされるため LC_TIME も同一となる。
+    必要がなければ LC_ALL は未定義のままが望ましい。
+
+    ※msysのlsはLC_TIMEを参照していない？ので不要
+
+*** TZ
+    タイムゾーン設定
+    cygwin バージョンによっては Asia/Tokyo が入っており表示時間が８時間ほどずれてしまう
+    .bashrc.emacs で
+    export  TZ=""
+    にする事で回避している。
+
+*** http_proxy
+    汎用プロキシ設定、emacs-lisp からプロキシを利用するために設定する必要がある
+    plugin でも参照される
+    ※ pluginによっては別の設定が必要な場合もある
+
+
+** 自動バイトコンパイル設定
+   emacs23.x から対応
+   emacs23.x 以下の全 el ファイルをEmacs起動時に自動バイトコンパイルする
+   - バイトコンパイル対象ファイル
+     elc が存在しない el 
+     elc より日付が新しい el
+   - 自動バイトコンパイルの無効化
+     emacs.el の (auto-byte-compile-recursive path-dot-emacs) をコメントアウトする
+   - 自動バイトコンパイル対象から外す
+     ディレクトリ名の先頭が '.' を含んでいる場合はスキップされる
+     ファイル名にはこのルールが適用されないので注意
+
+
+* ディレクトリ構成
+  Emacs22 からは ~/.emacs.d/ (user-emacs-directory) 以下に
+  Emacs 関連の設定ファイルを集めることが推奨されるようになったのを受けて
+  Emacs メジャーバージョン毎に設定ディレクトリが用意されています。
+  Emacs22以前は ~/ 直下の .emacs ファイルを読み込むことになっているため、標準では ~/.emacs.d/ は参照されません。
+  .emacs_ を .emacs にリネームすることにより ~/.emacs.d/ 以下を参照させることができます。
+
+** 24.x
+   .emacs.d +- .emacs24 +- replace-builtins
+                        +- preferences +- basic
+		                       +- builtin
+                        +- plugins
+
+** 23.x
+   .emacs.d +- .emacs23 +- preferences +- basic
+		                       +- library
+		                       +- themes
+                        +- plugins
+
+** 22.x/21.x
+   .emacs.d +- .emacs21 +- user_el +- env
+                                   +- ext
+				   +- package
+			+- elisp
+
+
+
+* 環境設定
+** Font
+   等幅フォント設定
+
+*** Consolas/ＭＳ ゴシック
+    - Windows Vista/7
+      半角英数字　：Consolas
+      全角　　　　：ＭＳ ゴシック
+    - Windows XP
+      Visual Studio がインストールされている場合はインストール済みとなる
+      無い場合は↓
+      http://www.microsoft.com/downloads/ja-jp/details.aspx?FamilyID=f7d758d2-46ff-4c55-92f2-69ae834ac928&DisplayLang=ja
+
+*** Courier New/ＭＳ ゴシック
+    - Windows XP/Vista/7
+      半角英数字　：Courier New
+      全角　　　　：ＭＳ ゴシック
+
+*** VLゴシック
+    - Windows XP/Vista/7
+      http://vlgothic.dicey.org/
+
+*** メイリオ
+    - Windows XP
+      ttp://www.microsoft.com/downloads/ja-jp/details.aspx?familyId=f7d758d2-46ff-4c55-92f2-69ae834ac928&hash=ZiSTNfkQXHiwjEkCGcS9x8rFN%2fv199NrzgNYy7LZyt1tiO89e2OaZOFptVHdHqVP9moe3wwlY1tD7OiwFBLDRw%3d%3d
+    - Windows Vista/7
+      標準搭載
+
+    - Linux
+      環境無いので未テスト
+    
+
+* 対応バージョン
+** 24.x [1/1]
+   - [X] 24.2
+   - [X] 24.1
+	 バイトコンパイル正常終了＆起動可能
+** 23.x [4/5]
+   23.x 共通のバグで default-frame-alist の font or background-color width or height が競合する。
+   font に指定する値次第で、 カレントフレームの width or height が上書きされる。default-frame-alist の値は変わらない。
+   この現象は、 default-frame-alist に background-color を セットしないと回避できる。
+   24.x では発生しない模様。
+   - [X] 23.4
+   - [X] 23.3
+   - [X] 23.2
+	 このバージョン以降CEDETは標準対応
+   - [ ] 23.1
+	 CEDETが非標準なので未対応、基本的に23.xはCEDET標準対応を前提として設定ファイルが記述されている
+** 22.x [1/1]
+   - [X] 22.x
+** 21.x [1/1]
+   - [X] 21.x
+	 ~/.emacs.d/ が未対応。 ~/.emacs_ を使用で対応可能
+
+    
+    
+
+# --------------------------------------------------------------------------------------------------
+# EOF

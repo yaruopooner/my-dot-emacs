@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: dynamic_cast< typename >( expression )
+# key: dcast
+# --
+dynamic_cast< ${1:typename} >( ${2:expression} )$0

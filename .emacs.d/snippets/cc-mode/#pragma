@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: #pragma ...
+# key: #prg
+# --
+#pragma ${1:}

@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: enum
+# key: enum
+# --
+enum ${1:identifier} ${2:name}${3: : ${4:type}}
+{
+    $0
+};

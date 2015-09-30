@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: x_cast< typename >( expression )
+# key: xcast
+# --
+${1:$$(yas-choose-value '(
+                        "reinterpret_cast"
+                        "static_cast"
+                        "const_cast"
+                        "dynamic_cast"
+                        "lexcal_cast"
+                        ))}< ${2:typename} >( ${3:expression} )$0

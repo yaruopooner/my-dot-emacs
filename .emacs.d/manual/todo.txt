@@ -1,0 +1,153 @@
+# -*- Mode: org ; Coding: utf-8-unix -*-
+# last updated : 2012/09/04.16:03:14
+
+
+#+TITLE:Emacs Configuration TODO List
+#+AUTHOR:    the author (default taken from user-full-name)
+#+EMAIL:     his/her email address (default from user-mail-address)
+#+LANGUAGE:  language for HTML, e.g. `en' (org-export-default-language)
+#+TEXT:      Some descriptive text to be inserted at the beginning.
+#+TEXT:      Several lines may be given.
+#+OPTIONS:   author:nil timestamp:t |:t \n:t ^:nil
+
+
+
+* TODO
+** misc [0/2]
+   - [ ] resource temporarily unavailable を解決する
+	 find-name-dired でファイルを検索＞全選択＞削除＞key gで更新を行うと、
+	 同メッセージが出力されるケースが多い。
+	 他の外部コマンドを利用するケースでも発生することがある。
+	 このメッセージ出力後は、一切の外部コマンドが使用不能になり同メッセージが出るのみとなる。
+	 現在のところemacs再起動のみでしか対処できていない。
+	 コマンドプロンプトから
+	 cd %cygwin%bin>ash
+	 rebaseall -v
+	 を実行することにより解決できる可能性がある
+	 Vista/7にCygwinをインストールするとDLLのアドレス重複エラーが起こるらしい。
+	 エラーは環境によって、起こったり起こらなかったりする
+	 rebaseallはそれを解決するためのものらしい
+	 http://pinka99.ddo.jp/nanao/work/errno.html
+	 rebaseall実行以降まだ find-name-dired を試していないので再発するかどうかのチェックはできていない
+   - [ ] cygwin(1.7.14)にて emacs-shell > bash起動で以下メッセージがでる、動作はする
+ 	  bash: cannot set terminal process group (-1): Inappropriate ioctl for device
+	  bash: このシェルにはジョブ制御がありません
+	 cygwin(1.7.9)では発生しない
+	 bash --versionはどちらも同一だった 4.1.10(4)
+	 http://emacswiki.org/emacs/NTEmacsWithCygwin
+	 http://pinka99.ddo.jp/nanao/work/errno.html
+
+** font [3/4]
+   - [ ] iso10646-1対応
+	 iso8859-1で維持されていた等幅が壊れる
+   - [X] 等幅フォント対応(Windows 7 64bit)
+   - [X] 等幅フォント対応(Windows XP 64bit)
+   - [X] メイリオ等幅フォント対応
+	幅は対応完了、高さは無理みたい
+
+** plugin [2/4]
+   - [X] 24.1からgrep-editで編集ができない。 23.4までは可能。
+         文字の単独入力が不能、 replace-string, Query replaceは可能。
+	 しかし、編集後に c-u c-x s などでバッファ保存もできない。
+	 grep-edit編集したはずのファイルを参照しても、編集箇所が反映されていない。
+	 compilation-mode が24.1からデフォルトで read-only なのではないだろうか？
+	 後継の wgrep に乗り換えて終了
+   - [ ] github の用途を考える
+   - [ ] popwin.el の用途を考える
+	 C++メソッドのプロトタイプ表示を可能にする？
+	 引数全表示、および、オーバーライド・ロード対象も表示できたらよい
+   - [X] color-theme.le のテスト
+	 既存の emacs-color-theme との整合性を考える。
+	 置き換え可能なら入れてしまう
+
+** mode [10/18]
+   - [X] cc-mode：変数宣言セクション（関数内およびstruct/class内部など）の自動インデントlispを作成
+         指定リージョンを選択して、その内部を自動インデントする
+         関数内変数宣言部なら、行頭タブ１ならば、変数タイプ指定から40文字後に変数名がくるように自動調整する
+         class/struct内宣言は60文字後。この文字数も指定可能にさせる。
+	 align.el でできた。
+   - [ ] flymake-mode：ビルド条件
+	 ロード時に設定されているプロジェクト条件でビルドするのではなく、カレントディレクトリまたは親ディレクトリを遡って
+	 コンパイラタイプをチェックしてビルドさせる
+	 edeプロジェクトが見つからない場合ビルドしないようにする。
+	 見つかった場合はロードされているedeプロジェクトと同一ならビルド？
+	 もしくは、edeプロジェクトのflymake設定を読み込み自動ビルド？
+	 gtags.elではターゲットソースディレクトリを遡り、
+	 GTAGSファイルがあるかどうかチェックしているので同様の仕組みを入れる
+   - [ ] grep-find-mode：lgrep のカラーハイライトを動作させる
+	 コマンドラインに指定しても、 find-grep でハイライトされない
+	 emacs23.4-32/lisp/progmodes/grep.el
+	 defvar grep-mode-font-lock-keywords をチェック
+   - [ ] cedet：ソースオープン直後に必ず reparse buffer を行わせる？
+	 現在行われていないようで、 include 系が軒並み、 unknown include ハイライトされている
+	 (add-hook 'c-mode-common-hook '(lambda () (semantic-force-refresh))
+	 とかでいけそう
+   - [X] org-mode：html変換時に改行が無効になるので、有効にする方法を探す
+         http://www.geocities.jp/km_pp1/org-mode/org-mode-document.html
+	 http://hpcgi1.nifty.com/spen/index.cgi?OrgMode%2FManual4#i12
+   - [X] flymake-mode：gcc-ppu-lv2 のビルドオプションを見直す
+	 ldに与えるオプションとコンパイラに直接渡すオプションが若干違う模様。
+	 stdio.hなども見に行っていないぽい
+	 原因は標準ライブラリのインクルードディレクトリを -I オプションで渡していたことだった。
+	 これらを省いたところ標準関数群はエラーにならなくなった。
+   - [ ] ibuffer-mode：バッファ名に２バイトコードが入るとインデントがずれる
+	 MR Name より後ろ(Coding)の表示がずれるのを解決する
+	 どうやら、空白消費量が１バイトコード、２バイトコードで等価になっているのが原因？
+   - [X] org-mode：PDF 出力を可能にする
+	 可能になった場合、 pdf-preview は必要なくなる
+	 TexLive2011パッケージと一部修正で日本語フォント込みで出力可能になった。
+	 ただし、パラグラフやインデントなどがまだ制御できていない
+   - [ ] flymake-mode：整備
+	 ビルド環境の整備、 cedet との連携などを強化する
+   - [ ] grep：C-x g > grep-find 時の find 引数 -regex の中身を現在のメジャーモード毎に変更させたい
+	 C-x C-l すると、プロトタイプ一覧が表示されるはずが、表示フレームは表示されるが内部は空のまま
+   - [ ] CEDET + auto-complete-mode：補完使用時の ac-source-* 設定を見直す
+	 大規模ソース補間時に動作が重いので軽くしたい
+	 また、::,->,. 以外で補間させた場合に、
+	 アクセス演算子以降の文字列で一致している該当クラス以外のメソッドも全て表示されるのをやめさせる
+   - [ ] vc-mode：日本語ログの文字化けを解決する
+   - [X] whitespace-mode：config file 調整を完了させる
+   - [X] grep-find-mode：Grep exited abnormally with code 123 を解決する
+   - [X] anything-mode：describe-* 系を anything-describe-* に置き換える
+   - [X] anything-mode： describe-variable の anything版をなんとかする
+	 descbinds-anything的なものがあるか探す
+   - [X] navi：cc-mode において (setq c-auto-newline t);全自動インデント設定有効時にnavi.elが正常に動作しなくなる問題を解決
+	 上記変数を有効にすると mode-name の値が "C++/la" になり、navi側の連想配列keyと一致しなくなっていたため動作しなかった
+	 パッチを当てて対応。key検索を正規表現で行うように修正
+   - [X] cc-mode：メソッド・制御ブロックとかを閉じて表示
+	 hs-minor-modeでできる?
+	 (){}であればhs-minor-modeで折り畳みできた、begin/endではできない
+	 ttp://emacswiki.org/emacs/HideShow 
+	 の":this will do usable ruby hide show support…" 
+	 はどうやって扱ってよいのか・・。
+
+** byte-compile [2/5]
+   - [ ] moccur-edit/color-moccur バイトコンパイルで redefined 警告を解決させる
+	 ad-handle-definition: `ibuffer-do-occur' got redefined [2 times]
+	 ad-handle-definition: `moccur-quit' got redefined
+	 ad-handle-definition: `moccur-mode' got redefined
+	 ad-handle-definition: `moccur-grep-mode' got redefined
+	 ad-handle-definition: `moccur-quit' got redefined
+	 ad-handle-definition: `moccur-mode' got redefined
+	 ad-handle-definition: `moccur-grep-mode' got redefined
+   - [ ] summarye.el  バイトコンパイルでwarningを解決する
+   - [ ] ECB バイトコンパイルできない問題を解決させる
+   - [X] .emacs.d 以下を自動バイトコンパイルする関数を作る
+	 byte-recompile-directory を利用する＞　指定ディレクトリ以下を再帰的に強制バイトコンパイルする
+	 問題点は、 load-path にプラグイン等のパスが入っていないとビルドエラーになる。
+	 通常は、 (add-to-list 'load-path new-path) してからプラグインのセットアップを行う。
+	 このため byte-recompile-directory 実行時に全パスがリストに加えられている必要がある。
+	 回避策としては、コンパイル時に、現在の load-path を保存しておき、
+	 指定されたディレクトリ以下の全サブディレクトリを load-path に加える。
+	 この load-path を使用して byte-recompile-directory を行う事により、未ロードエラーをなくす。
+	 コンパイル後に、バックアップしておいた load-path を復帰させる
+   - [X] emacs.el dot-emacs-utility-funcs.el のバイトコンパイル方法を考える
+	 現在だと、上記２ファイルを読み終えてからのバイトコンパイルになるため、el が elc より新しくてもバイトコンパイルが行われない
+	 init.el から行う？もしくはセーブ時にバイトコンパイルするのも実装する必要がありそう。
+       
+	
+  
+
+
+# --------------------------------------------------------------------------------------------------
+# EOF

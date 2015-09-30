@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: __MACRO__
+# key: __macro
+# --
+${1:$$(yas-choose-value '(
+                        "__FILE__"
+                        "__LINE__"
+                        "__DATE__"
+                        "__TIME__"
+                        "__FUNCTION__"
+                        "__PRETTY_FUNCTION__"
+                        "__func__"
+                        "__STDC__"
+                        ))}$0

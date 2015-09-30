@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: tryw
+# key: tryw
+# --
+try
+{
+    `(or yas/selected-text (car kill-ring))`
+}
+catch ${1:Exception}
+{
+
+}

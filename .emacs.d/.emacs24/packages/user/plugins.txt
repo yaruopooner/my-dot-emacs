@@ -1,0 +1,132 @@
+;;; -*- Mode: org ; Coding: utf-8-unix -*-
+;;; last updated : 2012/07/20.19:17:55
+
+
+#+TITLE:■■■　plugin 一覧　■■■
+#+AUTHOR:    the author (default taken from user-full-name)
+#+EMAIL:     his/her email address (default from user-mail-address)
+#+LANGUAGE:  language for HTML, e.g. `en' (org-export-default-language)
+#+TEXT:      Some descriptive text to be inserted at the beginning.
+#+TEXT:      Several lines may be given.
+#+OPTIONS:   author:nil timestamp:t |:t \n:t
+
+
+
+* General [9/16]
+  - [ ] auto-install.el
+	Emacs Wikiからパッケージをダウンロード・インストールの自動化
+
+  - [X] recentf-ext.el
+	recentf.el 拡張。ディレクトリ履歴も対象にする。
+
+  - [X] anything
+	統合インターフェース
+
+  - [X] auto-complete
+	単語補完	
+
+  - [ ] browse-yank.el
+	yankリングバッファ機能
+
+  - [X] revive.el
+	前回emacs終了時のバッファ構成を復元する
+
+  - [X] color-moccur.el/moccur-edit.el
+	occur拡張・編集
+
+  - [X] grep-a-lot.el/grep-edit.el
+	grep結果バッファを複数所持可能にする/grep結果を直接編集・書き戻しする
+
+  - [ ] windows.el
+	分割されたウィンドウを切り替えることができる．さらに，分割形態を保存することもできる．
+
+  - [ ] tabbar.el
+	バッファのタブ化
+
+  - [ ] menu-tree.el
+	emacs GUI Menuの日本語化
+
+  - [X] uenox-dired.el
+	diredからwindows関連アプリケーション呼び出し
+
+  - [ ] uenox-ps-print.el
+	プリンター(win32)
+
+  - [X] cygwin-mount.el
+	Cygwin のマウント情報を利用して、 cygwin 上でのファイルを emacs 上でも利用できるようにした elisp
+
+  - [X] cygwin-mount-mw32.el
+	cygwin-mount.el の一部を差し替えることで mount コマンドを使用せずに Meadow に実装されている Registry API を利用してファイルシステムの情報を取得するために作成したのが cygwin-mount-mw32
+
+  - [ ] radix.el
+	?
+
+
+  
+* Mode [4/7]
+  - [ ] bison-mode.el
+	bison/flex または yacc/lex
+
+  - [X] csharp-mode.el
+	C# Mode
+
+  - [ ] google-c-style.el
+	C/C++ google style support
+
+  - [ ] csv-mode.el
+	CSV Mode
+
+  - [X] html-helper-mode.el
+	HTML Mode
+
+  - [X] lua-mode.el
+	lua Mode
+
+  - [X] tempo.el
+	XML Mode
+
+   
+ 
+* Programming Support Tools [4/8]
+  - [ ] dsvn.el
+	subversion
+
+  - [ ] ecb-2.40
+	Emacs Code Browser 2.40
+
+  - [X] emacs-wiki
+	emacs wiki
+
+  - [X] gtags.el
+	gtags
+
+  - [X] navi.el
+	関数プロトタイプナビゲーター
+
+  - [X] summarye.el
+	関数プロトタイプナビゲーター
+
+  - [ ] psref.el
+	PlayStation function manual
+
+  - [ ] ps2ref.el
+	PlayStation2 function manual
+
+
+
+* Setup
+  セットアップファイル
+  setup.anything.el
+  setup.auto-complete.el
+  setup.browse-yank.el
+  setup.cedet.el
+  setup.csharp-mode.el
+  setup.lua-mode.el
+  setup.dsvn.el
+  setup.ecb.el
+  setup.emacs-wiki.el
+  setup.gtags.el
+  setup.navi.el
+  setup.tabbar.el
+
+

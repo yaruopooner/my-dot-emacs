@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: #import <...>
+# key: #imp.s
+# --
+#import	<${1:filename}>

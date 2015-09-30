@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: static_cast< typename >( expression )
+# key: scast
+# --
+static_cast< ${1:typename} >( ${2:expression} )$0

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name : magic comment : coding
+# key: magic
+# --
+-- -*- mode: lua ; coding: utf-8-unix -*-
+$0

@@ -1,0 +1,37 @@
+# -*- Mode: org ; Coding: utf-8-unix -*-
+# last updated : 2012/09/03.03:07:56
+
+
+#+TITLE:■■■　未解決事項　■■■
+#+AUTHOR:    the author (default taken from user-full-name)
+#+EMAIL:     his/her email address (default from user-mail-address)
+#+LANGUAGE:  language for HTML, e.g. `en' (org-export-default-language)
+#+TEXT:      Some descriptive text to be inserted at the beginning.
+#+TEXT:      Several lines may be given.
+#+OPTIONS:   author:nil timestamp:t |:t \n:t ^:nil
+
+
+
+* 001 : color-moccur.el moccur-edit.el 併用時の警告メッセージ
+  初期化で moccur-edit 併用時に以下の警告メッセージがメッセージバッファに出力される
+
+  ad-handle-definition: `moccur-quit' got redefined
+  ad-handle-definition: `moccur-mode' got redefined
+  ad-handle-definition: `moccur-grep-mode' got redefined
+  ad-handle-definition: `moccur-quit' got redefined
+  ad-handle-definition: `moccur-mode' got redefined
+  ad-handle-definition: `moccur-grep-mode' got redefined
+
+  anything-c-moccur から color-moccur が require されるが、
+  color-moccur 内部で moccur-edit を require しており
+  moccur-edit がさらに内部で color-moccur を require するという入れ子状態になっている。
+  provide が行われるのは各ファイル末尾なので、
+  そこへ到達される前に require されるとロードしてしまう。
+
+  - コールスタック
+    anything-c-moccur.el
+    color-moccur.el
+    moccur-edit.el
+    color-moccur.el
+
+

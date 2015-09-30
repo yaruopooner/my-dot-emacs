@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: serialize property regist macro
+# key: sp.be
+# --
+    NI_PROPERTY( ${1:var-name} );

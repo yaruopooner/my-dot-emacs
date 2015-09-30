@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: serialize class regist macro
+# key: sc.be
+# --
+${1:$$(yas-choose-value '("NI_CLASS_BEGIN" "NI_ABSTRACT_CLASS_BEGIN"))}( ${2:typename} );
+$0
+NI_CLASS_END();

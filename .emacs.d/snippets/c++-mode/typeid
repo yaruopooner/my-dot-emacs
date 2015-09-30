@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: typeid
+# key: typeid
+# --
+typeid( ${1:typename} )$0

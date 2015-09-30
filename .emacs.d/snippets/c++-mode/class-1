@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: serialize class
+# key: class.s
+# --
+class ${1:$$(yas-choose-value '("ENGINE_API" "GAME_API"))} ${2:typename} : public ${3:base-typename}
+{
+    NI_CLASS( $2, $3 );
+public:
+    ${2:$(yas/substr yas-text "[^: ]*")}( const char* name );
+    ${4:virtual }~${2:$(yas/substr yas-text "[^: ]*")}( void );
+
+    $0
+};

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name : magic comment : coding
+# key: magic
+# --
+/* -*- mode: c++ ; coding: ${1:$$(yas-choose-value '("utf-8-unix" "utf-8-with-signature-unix" "utf-8-dos" "utf-8-with-signature-dos" "utf-8"))} -*- */
+$0

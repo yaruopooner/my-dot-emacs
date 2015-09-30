@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: #define identifier
+# key: #d
+# --
+#define ${1:IDENTIFIER}

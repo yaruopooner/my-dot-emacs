@@ -1,0 +1,343 @@
+# -*- Mode: org ; Coding: utf-8-unix -*-
+# last updated : 2012/09/07.15:19:05
+
+
+#+TITLE:Emacs command list
+#+AUTHOR:    the author (default taken from user-full-name)
+#+EMAIL:     his/her email address (default from user-mail-address)
+#+LANGUAGE:  language for HTML, e.g. `en' (org-export-default-language)
+#+TEXT:      Some descriptive text to be inserted at the beginning.
+#+TEXT:      Several lines may be given.
+#+OPTIONS:   author:nil timestamp:t |:t \n:t ^:nil
+
+
+
+C : Ctrl key
+M : Esc & Alt
+
+* cursor
+  C-p			カーソル 上
+  C-n			カーソル 下
+  C-f			カーソル 右
+  C-b			カーソル 左
+  M-f			単語単位でカーソル 右
+  M-b			単語単位でカーソル 左
+  M-{			数行単位で上へスクロール（空白を探索）
+  M-}			数行単位で下へスクロール（空白を探索）
+  M C-p			空白単位で上へスクロール
+  M C-n			空白単位で下へスクロール
+  M-<			ファイル先頭へ移動
+  M->			ファイル終端へ移動
+  C-a			カーソルを行の先頭へ移動
+  C-e			カーソルを行末へ移動
+  C-v			カーソルを１画面前進
+  M-v			カーソルを１画面後退
+  C-l			カーソルがある位置を画面の中心とする
+
+  C-m			改行
+  C-i			タブ
+  C-j			字下げ（つまり C-m + C-i を一括で行う）
+  C-o			現在の行と次の行の間に行を１つ挿入する
+
+
+* window
+  C-x C-2		上下２画面分割
+  C-x C-3		左右２画面分割
+  C-x C-o		分割したウィンドウへの移動
+  C-x C-0		上下２画面を１画面に統合（カーソルのないウィンドウ）
+  C-x C-1		上下２画面を１画面に統合（カーソルのあるウィンドウ）
+  C-x ^			上下２画面のうち、自分のウィンドウを広げる
+  C-x C-c		Emacs close
+
+* frame
+  C-x 5 2		別フレームを開く（同プロセス）
+  C-x 5 0		別フレームを閉じる（同プロセス）
+
+
+* file
+  
+  C-x C-f		file open
+  C-x C-w		file save
+  C-x C-s		file save(上書き)
+  C-x i			カーソル位置にファイルを挿入
+
+* cat & peast
+** normal
+   C-space		カットアンドペースト開始位置セット
+   M-w			カットアンドペースト-> コピー
+   C-w			カットアンドペースト-> 切取り
+   C-y			カットアンドペースト-> 貼付け
+   C-k			カーソル位置以降を行末まで削除（クリップボードへスタックされます C-y で貼付け）
+   C-x k		現在開いているバッファを閉じる
+   C-enter		cua-modeへ切り替え	（開始位置がセットされている状態）
+
+** rectangle（矩形）
+   C-x r k		kill-rectangle		（矩形を切り取る。C-x r y で貼り付けられる）
+   C-x r y		yank-rectangle		（C-x r kで切り取った矩形を貼り付ける）
+   C-x r c		clear-rectangle		（矩形領域を空白に変換する）
+   C-x r o		open-rectangle		（矩形領域ぶんの場所をあける）
+   C-x r d		delete-rectangle	（矩形を削除する。C-x r y で貼り付けられない）
+   C-x r t		string-rectangle	（矩形領域に文字列を埋め込む）
+
+   C-x C-x		カーソルとマークの位置を交換する
+
+** cua-mode（矩形）
+   C-enter		cua-modeカットアンドペースト開始位置セット
+   C-space		normalへ切り替え	（開始位置がセットされている状態）
+   ペーストは通常の矩形操作で行う > C-x r y
+   以下はリージョン選択中のみ可能
+   M-o                  リージョンより右に空白を挿入（押すたびに１列挿入される）
+   M-c                  リージョンより右の空白を削除（一括削除）
+   M-s                  リージョンを文字列で置換
+   M-n                  リージョンを連番で置換
+   M-b                  リージョンを空白で置換
+   M-i                  リージョンより右に入力文字列を挿入
+   M-p                  ? M-i と同じ挙動をしたりしなかったり・・
+
+
+* An Abbreviation : 略語補完
+  C-x ail		略語登録モード
+  C-x '			略語展開
+
+
+* chara
+  M-/			文字列補完(Dynamic An Abbreviation : 動的略語補完)
+  C-/			Undo
+  C-\			かんなon, off
+  C-d			一文字削除
+  M-d			単語単位で削除
+  M-l			単語を小文字に変換
+  M-u			単語を大文字に変換
+  M-c			単語の頭文字を大文字にそれ以降は小文字に変換
+  C-t			前後の文字を交換
+  M-t			前後の単語を交換
+  C-x C-t		前後の行を交換
+  M-q			カーソル以下の行の改行を削除
+
+
+* etc
+  C-x C-b		現在開かれているバッファリスト
+  M-!			command line open
+
+
+* search
+  C-s			下へ文字列検索 （back space key で前候補へ, もしくは C-r）
+  C-s (Enter)		検索文字列の入力
+  C-r			上へ文字列検索 （C-s で下へ）
+  C-s & C-r 		共通操作 （C-w でカーソルがある単語を選択する、押すたびに選択領域が大きくなる）
+  C-r (Enter)		検索文字列の入力
+  C-w			カーソルがある単語を選択
+
+  M-x occur		grep (current file only)実行結果表示ウィンドウ内で目的行にカーソルをあわせ C-c C-c で指定行へジャンプ
+  M-%			文字列置換（置換時に y, n の選択可）
+  M-C-%			文字列置換：正規表現利用可能（置換時に y, n の選択可）（こちらでキーバインドしたもの）
+
+  M-x replace-string	文字列一括置換
+
+
+* tags (etags による tags file が必要)
+  M-.			定義元へジャンプ
+  C-u M-.		次の定義元の候補へジャンプ
+  C-x 4-.		定義元へジャンプ：別ウィンドウに表示
+
+  M-x tags-search	指定キーワードの利用場所へジャンプ
+  M-,			次の利用場所へジャンプ
+
+  M-Tag			tag テーブルを使用した単語の補完
+  M-x complete-tag	tag テーブルを使用した単語の補完
+
+
+* shell mode 
+  M-shell		shell 起動
+  M-p			command history back
+  M-n			command history next
+
+
+* mini buffer
+  C-g			ミニバッファコマンドをキャンセル
+
+
+* misc
+  C-z			アイコン化（最小化）
+
+
+* Dired mode
+  p			カーソルを上へ
+  n			カーソルを下へ
+  f			カーソル位置のファイルをオープン
+  C-x k			現在開いているバッファを閉じる
+  C-x d                 カレントディレクトリ内リストを名前でフィルタリング
+  d			削除するファイルをマーク
+  m			ファイルをマーク
+  u			カーソル位置にあるファイルのマークの解除
+  x			マークされたファイルに対する処理を実行
+  g			バッファの更新(再読込)
+  s			表示ファイルリストのソート（押すたびに file name <---> time stamp）
+  C			ファイルのコピー（マークファイル一括も可、ただし別名ファイル生成は不可）
+  R			== move command （ファイル移動、リネーム等）
+  Z			ファイルの圧縮(gz)
+  q			Dired mode exit
+  +			create-directory
+
+  X			マークファイルに対して任意コマンドを入力して実行
+  D			マークファイルに対して削除を実行
+  ~			~で終わるバックアップファイルをマーク
+  #			#で始まるバックアップファイルをマーク
+  * s			サブディレクトリ内の全ファイルをマーク
+  * !			サブディレクトリ内の全マークを解除
+  * t			マークファイルと非マークファイルを反転
+  * /			サブディレクトリ内の全ディレクトリをマーク
+  * @			サブディレクトリ内の全シンボリックリンクをマーク
+  * %			正規表現regexp に一致する全てのファイルをマーク
+  * *			全実行ファイルをマーク
+
+  // バッファについて
+  C-x RET f     バッファ内の文字、改行コード変更 
+
+
+
+  以下のものを .emacs へ記述することにより
+  指定行へのジャンプなどの機能が追加される
+  F1 は C-o と同機能
+  F2 は 指定行へジャンプ
+  F3 は M-! で make と同義
+
+
+  ;; キーカスタマイズ
+  (global-set-key [f1] 'other-window)
+  (global-set-key [f2] 'goto-line)
+  (global-set-key [f3] 'compile)
+
+
+
+
+  ＊かんな入力モード
+  M-i		変換領域を後退
+  M-o		変換領域を前進
+  C-p		変換候補一つ前へ戻る
+  C-n		変換候補を次へ進める
+  C-f		変換領域を次のブロックに進める
+  C-b		変換領域を前のブロックに戻す
+
+  // cc-modeの簡単な使い方 
+  // cc-modeの使い方を簡単に説明します。
+
+  M-C-a		関数本体の先頭に移動する
+  M-C-e		関数本体の末尾に移動する
+  M C-h		カーソルを関数の先頭に置き、末尾にマークを置く
+
+  C-c C-n		プリプロセッサの #if に対応する #endif に移動する 
+  C-c C-p		プリプロセッサの #endif に対応する #if に移動する 
+  C-c C-u		#if と #endif のあいだにカーソルがあるとき、#if に移動する 
+
+  C-c C-d		BackSpaceを押したときに、カーソルの左側にある空白を全て消す/ひとつずつ消すを入れ替える 
+  C-c C-a		"{" や ")" で自動的に改行をする/しないを入れ替える 
+  C-c C-c		リージョンをコメントアウトする。引数として -1 を与えると、コメントを外す 
+  C-c C-q		関数をインデントする 
+  M-C-\		リージョンをインデントする
+  C-c RET		関数にリージョンを設定する
+
+  C-c C-e		プリプロセッサを使ってマクロを展開したものを表示する 
+  C-c C-\		リージョンの行末に "\" をつける。複数行のマクロを書くときなどに便利 
+
+
+  C-M-f        同レベルの式(括弧)へ移動
+  C-M-b        逆方向へ同レベルの式(括弧)へ移動
+
+
+  //----------------------------------------2001/03/24
+  hexl-mode key bind(default)
+
+  M-C-d		10進で入力したコードでバイトを挿入します。 
+  M-C-o		8進で入力したコードでバイトを挿入します。 
+  M-C-x		16進で入力したコードでバイトを挿入します。 
+  C-x [		1kバイトの"ページ"の始めに移動します。 
+  C-x ]		1kバイトの"ページ"の終りに移動します。 
+  M-g		16進で指定したアドレスに移動します。 
+  M-j		10進で指定したアドレスに移動します。 
+  C-c C-c		Hexlモードを抜け、hexl-modeを起動する前の主モードに戻ります。
+
+
+  //----------------------------------------
+
+
+  // lisp variable の内容などを参照する
+  M-x describe-[hogehoge]		describe- で TAB を押すとリストが出るのでそれを参照
+  variable	指定した変数の値を表示する
+  function	指定した関数の使用を表示する
+  face		指定したフェイスパラメータを表示する
+  binding		現在のモードでのキーバインド
+  etc.....
+  M-x list-colors-display		color のリストを表示する（色つきで）
+  M-x list-faces-display		face のリストを表示する（色つきで）
+
+
+  // 作成した関数のデバッグ
+  Help->Options->Debug on Error [x]
+  もしくは
+  (setq debug-on-error t) 
+
+  デバッガが呼び出されて、関数呼び出しの様子が 
+  バックトレースとして出力されるのでそれを見て
+  デバッグする
+
+
+
+  -dired から検索・置換
+
+  C-x d で dired を表示した後で，適当なファイルに m でマークをつけます．
+  こうしておいて，A (dired-do-search) とすると，検索語の入力を求められますので，入力します．
+  すると，m でマークをつけたファイルを順番に開き，検索してくれます．そして，最初に一致した場所へカーソルが移動します．そこで，検索は停止しますので，編集などを行うことができます．
+  次の一致箇所へ行きたければM-, とします．一致箇所を一覧することはできませんが，ちょっとした検索に便利です．
+  同じようにして Q (dired-do-query-replace-regexp) で置換もできます． 
+
+  find-name-dired > target files mark > dired-do-query-replace-regexp が楽
+  保存は
+  C-x s                    全保存(確認有り)
+  C-u C-x s                全保存(確認無し)
+  を利用。
+
+
+
+  -検索・置換
+  C-s    検索
+  CM-s   正規表現検索
+  M-%    置換
+  M-x replace-string RET string RET newstring RET    一括置換
+  M-x replace-regexp RET regexp RET newstring RET    一括正規表現置換
+
+
+  // 略語の意味
+  emacs-20.7
+  apel-10.2       "A Portable  Emacs Library" 
+  flim-1.12.7      "Faithful Library about Internet Message"
+  semi-1.13.4      "Secret:-) for Emacs Mime Interfaces"
+  semi-gnus-6.8.10 "Based on  Gnus 5.6.9", News and Mail Reader 
+  mew-1.94.2        "Messaging in the Emacs World" 
+  im-140          "Internet Message"
+  mew-gnus.el     "Read(Gnus)/Post(Mew), mew-1.92/contrib/"
+  x-face-mule     "Show X-Face inline"
+  tc2.0beta9      "Tcode direct input Method
+
+
+
+  Emacs Lisp をいじろうとする時に覚えておくと便利なコマンド
+  M-x apropos 
+  どんな関数、変数があるのかを調べるときに使うコマンドです。例えば、 Info 関係の変数を調べている場合は、M-x apropos Info とすると、 Info を名前に含む関数及び変数が表示されます。 (デフォルトで C-h a にバインドされている command-apropos とは、表示される情報が異なりますので、混同しないよう注意してください) 
+
+  M-x describe-function (C-h f) 
+  関数の機能を表示するコマンドです。「GNU Emacs Lisp リファレンス・マニュアル」も参照して下さい。 
+
+  M-x describe-variable (C-h v) 
+  変数の値とその意味を表示するコマンドです。~/.emacs で設定した値が反映されているか、チェックしたい場合は、~/.emacs を開いて、調べたい変数にカーソルを合わせて C-h v RET とすれば、変数の値を表示してくれます。 また、mule のバージョンを確認したい場合は、C-h v mule-version としてください。「GNU Emacs Lisp リファレンス・マニュアル」も参照して下さい。 
+
+
+
+* wdired mode
+  r			rename mode begin
+  C-c C-c		rename commit
+  C-x C-s		rename commit
+  C-c C-k		rename mode abort
+  C-x C-q		rename mode exit(confirm save or abort)
+
+

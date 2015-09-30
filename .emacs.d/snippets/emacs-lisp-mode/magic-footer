@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name : footer magic comment : coding
+# key: magic-footer
+# --
+$0
+;; Local Variables:
+;; coding: utf-8-unix
+;; indent-tabs-mode: nil
+;; End:

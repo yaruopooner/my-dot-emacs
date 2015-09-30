@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: serialize flag regist macro
+# key: sf.be
+# --
+    NI_FLAG_BEGIN( ${1:var-name} );
+        NI_FLAG( ${2:bit-index}, "${3:flag-name-string}" );$0
+    NI_FLAG_END();

@@ -1,0 +1,30 @@
+# -*- mode: shell-script ; coding: utf-8-unix -*-
+# last updated : 2014/11/07.17:38:25
+
+
+if [ -f "${HOME}/.bashrc.global" ]; then
+    "." "${HOME}/.bashrc.global"
+fi
+
+if [ -f "${HOME}/.bashrc.local" ]; then
+    "." "${HOME}/.bashrc.local"
+fi
+
+if [ -f "${HOME}/.bashrc.emacs" ]; then
+    "." "${HOME}/.bashrc.emacs"
+fi
+
+# if [ -f "${HOME}/.bashrc.ps3" ]; then
+#     "." "${HOME}/.bashrc.ps3"
+# fi
+
+# if [ -f "${HOME}/.bashrc.360" ]; then
+#     "." "${HOME}/.bashrc.360"
+# fi
+
+if [ -f "${HOME}/.bashrc.finalize" ]; then
+    "." "${HOME}/.bashrc.finalize"
+fi
+
+
+

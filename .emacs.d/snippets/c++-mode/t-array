@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Array< typename >
+# key: t-array
+# --
+Array< ${1:typename} >$0

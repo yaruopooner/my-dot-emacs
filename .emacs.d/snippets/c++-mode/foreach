@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name : for ( auto element : array ) { ... }
+# key: foreach
+# --
+for ( ${1:const} auto ${2:element} : ${3:array} )
+{
+    $0
+}

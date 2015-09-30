@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: const_cast< typename >( expression )
+# key: ccast
+# --
+const_cast< ${1:typename} >( ${2:expression} )$0

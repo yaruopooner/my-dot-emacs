@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: #define identifier     (replace-token)
+# key: #d.a
+# --
+#define ${1:IDENTIFIER}			( ${2:REPLACE-TOKEN} )

@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: operator [] const
+# key: c[]
+# --
+const ${1:Type}&    operator [] ( ${2:int32_t index} ) const
+{
+    $0
+}

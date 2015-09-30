@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: AutoRef< typename >
+# key: t-ar
+# --
+AutoRef< ${1:typename} >$0

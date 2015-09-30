@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: serialize enum regist macro
+# key: se.be
+# --
+    NI_ENUM_BEGIN( ${1:var-name}, ${2:enum-max-number} );
+        NI_ENUM( ${3:enum-name}, "${4:enum-name-string}" );$0
+    NI_ENUM_END();

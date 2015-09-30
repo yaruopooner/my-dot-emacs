@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: placement new[]
+# key: pnewa
+# --
+new( ${1:pointer} )	${2:typename}[ ${3:array-max} ];

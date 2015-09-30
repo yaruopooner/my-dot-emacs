@@ -1,0 +1,152 @@
+# -*- Mode: org ; Coding: utf-8-unix -*-
+# last updated : 2012/09/03.03:07:56
+
+
+#+TITLE:■■■　ありがちな状況での対処方法　■■■
+#+AUTHOR:    the author (default taken from user-full-name)
+#+EMAIL:     his/her email address (default from user-mail-address)
+#+LANGUAGE:  language for HTML, e.g. `en' (org-export-default-language)
+#+TEXT:      Some descriptive text to be inserted at the beginning.
+#+TEXT:      Several lines may be given.
+#+OPTIONS:   author:nil timestamp:t |:t \n:t ^:nil
+
+
+
+* 001 : 指定ディレクトリ以下の特定命名規則をもつファイル群だけをdiredで表示・編集する
+  find-name-dired
+  を使用、ディレクトリ指定、ファイル名（ワイルドカード指定可）でヒットしたファイルをdired-modeで表示・編集可能にする
+  操作はdired-modeと同様
+
+	
+* 002 : 指定ディレクトリ以下の特定命名規則をもつファイル群に対して、ファイル内特定文字列の一括置換を行う
+  sedを使用する
+  find . -type f -regex ".*.\(拡張子\)$" -print0 | xargs -0 -e grep -lr "置換前の文字列" | grep -v '*/.svn/*(対象外のパス)' | xargs sed -i 's/置換前の文字列/置換後の文字列/g'
+
+  find . -type f -regex ".*.\(el\).*" -print0 | xargs -0 -e grep -lv '.*/.svn/.*' > tst
+  find . -type f -regex ".*.\(el\).*" -print0 | xargs -0 -e grep -l '.*/.svn/.*' > tst
+  grep -lr -e "path-" * | grep -v -e ".svn/" > tst
+
+
+  find . -type f -regex ".*\.\(拡張子\)$" -print0 | xargs -0 -e grep -lr -e "置換前の文字列" | grep -v -e "\(除外したいパス1\|除外したいパス2\)" | xargs sed -i 's/置換前の文字列/置換後の文字列/g'
+
+  :sample
+  find . -type f -regex ".*\.\(el\)$" -print0 | xargs -0 -e grep -lr -e "rpath-" | grep -v -e "\(\.svn/\|/preferences/\)" | xargs sed -i 's/rpath-/apath-/g'
+
+  挙動
+  カレントディレクトリ以下の 拡張子el を列挙
+  拡張子el内で rpath- 文字列を持つファイルパスを列挙
+  列挙ファイルパスで、.svn or preferences を含むものは除外して再列挙
+  列挙されたファイルで rpath- を apath- に置換して保存
+
+  課題：emacs 上で置換対象毎に y/n を問い合わせつつ同様の置換を行う方法は？
+  Emacsでいくつかのファイルに同じ置換を施したいときは
+  dired-do-query-replace-regexp
+  を使います。
+
+  diredで対象とするファイルにマークを付け
+  M-x dired-do-query-replace-regexp[RET]
+
+  たとえば、先頭に1から9の数字がある行にAを付け加えたいなら
+  ^\([1-9]\)[RET]
+  A\1[RET]
+  です。
+  あとは普通のquery-replace-regexpと同様に y/n で答ます。
+
+  ファイル名から絞る場合は
+  find-name-dired
+  で絞ったファイルに対してマークをつけて、
+  M-x dired-do-query-replace-regexp[RET]
+  を実行すればよさげ
+  
+
+
+* 003 : 開いている全バッファ中、未保存のバッファを全て保存する
+  複数のファイルを編集していて，変更したファイルをすべて保存したい時には C-x s とします．
+  バッファ毎に保存するか確認されますので， y/n で答えます．
+  全部保存したければ ! とします．
+  これで，! と入力した以降のファイルはすべて保存されます．中断は q です．
+
+  いちいち確認されるのが面倒なら，C-u C-x s とします．
+  これなら確認なしに全バッファを保存できます 
+
+
+	
+* 004 : grep結果を直接編集し、その場で変更箇所をファイルに書き戻す
+  grep-editを使用
+
+  M-x grepで検索後， grep のバッファを編集できます．
+  編集すると，編集した箇所の色が変わります．
+  編集が終わったら，C-c C-e とすると色のついた変更のみが適用されます．
+  変更の破棄は，C-c C-u でできます．
+  また，適用したくない変更をリージョンで選択し， C-c C-r とすると，リージョン内の変更のみを破棄できます．
+
+  この変更の適用時にはバッファの保存はしていません．
+  保存前に正しく変更されているか確認してから保存してください．
+  変更箇所は色を変えてますので，簡単に見つかると思います． 	
+
+  変更適用後の対象ファイル一括保存はC-u C-x sなどで行います。
+  ※003参照
+
+  [Usage]
+  C-c C-e 変更を反映する
+  C-c C-r リージョンの変更点を破棄する
+  C-c C-u 全変更点を破棄する
+  C-x s 変更されたファイルを保存
+
+
+* 005 : cedet semantics メモ
+  ; システムのインクルードパスを設定する (C++ で gtkmm を使う場合)
+  (semantic-add-system-include "/usr/include/sigc++-2.0" 'c++-mode)
+  (semantic-add-system-include "/usr/include/gtkmm-2.4" 'c++-mode)
+  (semantic-add-system-include "/usr/include/gdkmm-2.4" 'c++-mode)
+  (semantic-add-system-include "/usr/include/giomm-2.4" 'c++-mode)
+  (semantic-add-system-include "/usr/include/glibmm-2.4" 'c++-mode)
+  (semantic-add-system-include "/usr/include/c++/4.4.1/i586-redhat-linux" 'c++-mode)
+  (semantic-add-system-include "/usr/include/c++/4.4.1" 'c++-mode) 
+
+  これでクラスのメソッド名を入力中にインライン補完が効くようになるし、
+  色々出来るようになる。(インライン補完は一見の価値有り！)
+  #include ローカル・グローバル変数やクラスのデータの宣言や定義の場所に飛んだりなど。
+  (実際は飛ばなくてもエコーエリアに随時宣言内容が表示されるので、そこを直接
+  編集したい時ぐらいだけど) 
+
+  `C-c , j' 定義場所にジャンプ(ローカル変数専用)
+  `C-c , J' グローバル変数・クラスデータなどファイルをまたぐ場合
+  `C-c , u' 型の宣言場所*など*に飛ぶ
+
+
+* 006 : 機械翻訳を行う
+  Web翻訳サービスを呼び出して、その結果をバッファに表示するものです。
+  Web翻訳サービスは機械翻訳なので翻訳の精度は高くありません。複数の翻訳エンジンで翻訳して、
+  その結果を見比べるのが賢明です。
+  text-translator.el では、登録されているすべての翻訳エンジンを呼び出すことができます。
+  さらに、文字列から英数字の割合を計算して、和英か英和のどちらを使うべきか判別できます。
+  翻訳は
+
+  M-x text-translator-all-by-auto-selection
+
+  だけで間に合います。
+  transent-mark-mode が有効のときはリージョンが翻訳対象になり、
+  そうでないときは翻訳文字列を聞いてきます。
+  翻訳結果は別ウィンドウに出てきます
+
+  C-u M-x text-transiator
+
+  で、翻訳サービスを選択して翻訳します。
+  翻訳サービスは日英以外にも様々な言語が多数登録されています。
+  ジョークサイトまで含まれています。
+
+
+
+
+
+* 007 : ディレクトリごと一括でバイトコンパイルする
+  emacs -batch -f batch-byte-compile *.el
+
+
+
+* 008 : grep結果で選択行を自動的に他ウィンドウに表示する
+  C-c C-f で next-error-follow-minor-mode をトグルすることによりon/off可能
+  
+
+

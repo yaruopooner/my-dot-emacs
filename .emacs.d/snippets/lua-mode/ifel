@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: ifel
+# key: ifel
+# --
+if ( ${1:condition} ) then
+	$0
+else
+	
+end

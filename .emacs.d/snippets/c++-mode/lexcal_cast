@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: lexcal_cast< typename >( expression )
+# key: lcast
+# --
+lexcal_cast< ${1:typename} >( ${2:expression} )$0

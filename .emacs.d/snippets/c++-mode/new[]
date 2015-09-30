@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: new[]
+# key: newa
+# --
+new	${1:typename}[ ${2:array-max} ];

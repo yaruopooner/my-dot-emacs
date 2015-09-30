@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name : header magic comment : coding
+# key: magic-header
+# --
+;;; -*- mode: emacs-lisp; coding: utf-8-unix${1:; lexical-binding: t} -*-
+;;; last updated : 2014/10/25.03:24:02
+$0

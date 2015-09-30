@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: serialize property object regist macro
+# key: spo.be
+# --
+    NI_PROPERTY_OBJECT( ${1:var-name}${2:, Property::PF_NoSerialize | Property::PF_ReadOnly} );

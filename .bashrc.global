@@ -1,0 +1,57 @@
+# -*- mode: shell-script ; coding: utf-8-unix -*-
+# last updated : 2015/02/17.23:47:11
+
+
+export  cygwin=false
+case "$(uname)" in
+    CYGWIN*) cygwin=true;;
+esac
+
+
+# default path
+export  PATH="${HOME}:${PATH}"
+
+
+# for Emacs build
+#export  MINGW="/cygdrive/c/MinGW20120317-2"
+#export  PATH="${HOME}:${MINGW}/bin:${MINGW}/msys/1.0/bin"
+
+
+# windows環境依存パスを一旦排除、 Windowsパスを引き継がず、/etc/profileのPATH初期値に戻す
+#export PATH="/bin:/usr/local/bin:/usr/bin:${HOME}"
+
+
+
+export	USR_SHARE_TOOLS_PATH=""
+
+
+export	CVSEDITOR="emacs"
+
+
+export	LANG="ja_JP.UTF-8"
+#export  LANG="en_US.UTF-8"
+
+# LC_ALL に値をセットすると全LC_系変数が LC_ALL と同一値になるので注意
+# 必要がなければ未定義にしておいたほうがよいかも？
+#export	LC_ALL="ja_JP.UTF-8"
+export	LC_CTYPE="ja_JP.UTF-8"
+
+
+if $cygwin; then 
+    # cygwin バージョンによっては Asia/Tokyo が入っており表示時間が８時間ほどずれてしまう
+    # (Cygwin 1.7.9(0.237/5/3)は未定義)
+    # (Cygwin 1.7.14(0.260/5/3)にて確認)
+    export  TZ=""
+fi
+
+
+
+# alias
+alias   rm='rm -i'
+alias   cp='cp -i'
+alias   mv='mv -i'
+alias   ls='ls -F --color=tty'
+alias   la='ls -la'
+
+
+

@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name : for ( typename::iterator it = array.begin(); it != array.end(); ++it ) { ... }
+# key: itfor
+# --
+for ( ${1:typename}::iterator it = ${2:array}.begin(); it != $2.end(); ++it )
+{
+    $0
+}

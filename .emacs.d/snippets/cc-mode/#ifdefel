@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: #ifdef ... #else ... #endif
+# key: #ifdefelend
+# --
+#ifdef ${1:IDENTIFIER}
+$0
+#else
+#endif	// $1

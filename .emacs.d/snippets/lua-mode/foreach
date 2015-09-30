@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: foreach
+# key: foreach
+# --
+for ${1:key, value} in ${2:$$(yas-choose-value '("ipairs" "pairs"))}( ${3:list} ) do
+	$0
+end
