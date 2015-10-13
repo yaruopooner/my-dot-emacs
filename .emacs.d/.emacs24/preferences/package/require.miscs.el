@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2015/04/15.12:28:48
+;;; last updated : 2015/10/13.19:47:51
 
 
 ;;==================================================================================================
@@ -65,8 +65,8 @@
 ;; visual-regexp
 ;; (global-set-key (kbd "M-%") 'vr/query-replace)
 
-(setq magit-last-seen-setup-instructions "1.4.0")
-
+;; (setq magit-last-seen-setup-instructions "1.4.0")
+(setq magit-uniquify-buffer-names nil)
 
 
 

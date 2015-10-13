@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2012/09/25.20:28:52
+;;; last updated : 2015/10/13.11:28:22
 
 
 ;;==================================================================================================
@@ -25,6 +25,8 @@
 
 
 (setq scratch-ext-log-directory (expand-file-name "scratch/" de:path-dot-emacs-root))
+(unless (file-accessible-directory-p scratch-ext-log-directory)
+  (make-directory scratch-ext-log-directory))
 
 
 ;; emacs起動時、初期化後
