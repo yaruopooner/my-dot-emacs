@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2015/04/18.03:03:15
+;;; last updated : 2015/10/18.17:32:49
 
 
 ;;==============================================================================
@@ -168,7 +168,8 @@
   (font-lock-add-keywords
    mode
    '(
-     ("\\<\\(decltype\\|alignof\\|nullptr\\|static_assert\\)\\>" 1 font-lock-keyword-face append)
+     ;; ("\\<\\(alignof\\|decltype\\|nullptr\\|static_assert\\)\\>" 1 font-lock-keyword-face append)
+     ("\\<\\(alignof\\|alignas\\|constexpr\\|decltype\\|noexcept\\|nullptr\\|static_assert\\|thread_local\\|override\\|final\\)\\>" 1 font-lock-keyword-face append)
      )))
 
 
