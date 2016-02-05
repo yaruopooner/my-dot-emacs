@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2015/07/06.00:39:46
+;;; last updated : 2016/02/06.01:46:47
 
 
 ;;==============================================================================
@@ -203,6 +203,9 @@
                             p4 ; melpa
                             js2-mode ; melpa
                             flymake-jshint ; melpa
+                            buttercup ; melpa
+                            flycheck ; melpa
+                            powershell ; melpa
                             ;; tern ; melpa
                             ;; tern-auto-complete ; melpa
                             ))
