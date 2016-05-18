@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2014/09/25.03:00:20
+;;; last updated : 2016/05/18.09:18:45
 
 
 ;;==============================================================================
@@ -60,7 +60,7 @@
 (set-buffer-file-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
-(set-selection-coding-system 'utf-16le-dos)
+;; (set-selection-coding-system 'utf-16le-dos)
 
 
 ;; GNU Emacs Manual によると
@@ -136,6 +136,10 @@
                                     (25     . (no-conversion . no-conversion))
                                     ))
 
+
+(let ((self-file-name "coding-system.config"))
+  (deu:load-library-auto-select-platform-path self-file-name de:path-basic-configuration)
+  )
 
 
 
