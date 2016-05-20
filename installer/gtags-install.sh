@@ -2,16 +2,18 @@
 #! /bin/sh
 
 work_dir="/tmp"
-if [ -d ${1} ]; then
+if [ ${1} ] && [ -d ${1} ]; then
     work_dir="${1}"
 fi
+echo ${work_dir}
 pushd ${work_dir}
 
 archive_name="global-6.5.4"
 archive_file="${archive_name}.tar.gz"
 
 if [ ! -f ./${archive_file} ]; then
-    wget ftp://ftp.gnu.org/pub/gnu/global/${archive_file}
+    # wget ftp://ftp.gnu.org/pub/gnu/global/${archive_file}
+    wget http://tamacom.com/global/${archive_file}
 fi
 
 if [ -d ./${archive_name} ]; then
