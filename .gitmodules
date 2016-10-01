@@ -4,3 +4,9 @@
 [submodule ".emacs.d/.emacs24/packages/user/msvc"]
 	path = .emacs.d/.emacs24/packages/user/msvc
 	url = https://github.com/yaruopooner/msvc.git
+[submodule ".emacs.d/.emacs25/packages/user/ac-clang"]
+	path = .emacs.d/.emacs25/packages/user/ac-clang
+	url = https://github.com/yaruopooner/ac-clang.git
+[submodule ".emacs.d/.emacs25/packages/user/msvc"]
+	path = .emacs.d/.emacs25/packages/user/msvc
+	url = https://github.com/yaruopooner/msvc.git
