@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2015/10/18.17:32:49
+;;; last updated : 2016/10/03.18:31:55
 
 
 ;;==============================================================================
@@ -168,8 +168,8 @@
   (font-lock-add-keywords
    mode
    '(
-     ;; ("\\<\\(alignof\\|decltype\\|nullptr\\|static_assert\\)\\>" 1 font-lock-keyword-face append)
-     ("\\<\\(alignof\\|alignas\\|constexpr\\|decltype\\|noexcept\\|nullptr\\|static_assert\\|thread_local\\|override\\|final\\)\\>" 1 font-lock-keyword-face append)
+     ;; C++11 keywords
+     ("\\<\\(alignas\\|static_assert\\)\\>" 1 font-lock-keyword-face append)
      )))
 
 
