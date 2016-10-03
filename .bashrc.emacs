@@ -1,5 +1,5 @@
 # -*- mode: shell-script ; coding: utf-8-unix -*-
-# last updated : 2016/10/01.16:39:50
+# last updated : 2016/10/03.23:58:36
 
 # cygwin version 1.7x~
 
@@ -21,34 +21,14 @@ if $cygwin; then
     alias   meadow210="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/32/meadow2.10/bin/meadow.exe${MY_EMACS_DEFAULT_OPTIONS}"
     alias   meadow301="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/32/meadow3.01/bin/meadow.exe${MY_EMACS_DEFAULT_OPTIONS}"
 
-    alias   emacs32-223="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/32/emacs-22.3/bin/emacs.exe${MY_EMACS_DEFAULT_OPTIONS}"
-    alias   emacs32-231="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/32/emacs-23.1/bin/emacs.exe${MY_EMACS_DEFAULT_OPTIONS}"
-    alias   emacs32-233="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/32/emacs-23.3/bin/emacs.exe${MY_EMACS_DEFAULT_OPTIONS}"
-    alias   emacs32-234="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/32/emacs-23.4/bin/emacs.exe${MY_EMACS_DEFAULT_OPTIONS}"
-    alias   emacs32-241-0="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/32/emacs-24.1-20120610/bin/emacs.exe${MY_EMACS_DEFAULT_OPTIONS}"
-    alias   emacs32-241-1="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/32/emacs-24.1-20120616/bin/emacs.exe${MY_EMACS_DEFAULT_OPTIONS}"
-    alias   emacs32-241-2="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/32/emacs-24.1-20120716/bin/emacs.exe${MY_EMACS_DEFAULT_OPTIONS}"
-    alias   emacs32-242-0="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/32/emacs-24.2-20120902/bin/emacs.exe${MY_EMACS_DEFAULT_OPTIONS}"
-    alias   emacs32-242-1="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/32/emacs-24.2-20120922/bin/emacs.exe${MY_EMACS_DEFAULT_OPTIONS}"
-    alias   emacs32-242-2="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/32/emacs-24.2-20121208/bin/emacs.exe${MY_EMACS_DEFAULT_OPTIONS}"
-    alias   emacs32-243-0="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/32/emacs-24.3-20130317/bin/emacs.exe${MY_EMACS_DEFAULT_OPTIONS}"
-    alias   emacs32-243-1="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/32/emacs-24.3-20130503/bin/emacs.exe${MY_EMACS_DEFAULT_OPTIONS}"
     alias   emacs32-243-2="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/32/emacs-24.3-20130709/bin/emacs.exe${MY_EMACS_DEFAULT_OPTIONS}"
+    alias   emacs32-251-ime="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/32/emacs-25.1-IME-patched/bin/runemacs.exe${MY_EMACS_DEFAULT_OPTIONS}"
 
-    alias   emacs64-233="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/64/emacs-23.3/bin/runemacs.exe${MY_EMACS_DEFAULT_OPTIONS}"
-    alias   emacs64-234="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/64/emacs-23.4/bin/runemacs.exe${MY_EMACS_DEFAULT_OPTIONS}"
-    alias   emacs64-2435="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/64/emacs-w64-bzr116266/bin/runemacs.exe${MY_EMACS_DEFAULT_OPTIONS}"
-    alias   emacs64-244="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/64/emacs-24.4/bin/runemacs.exe${MY_EMACS_DEFAULT_OPTIONS}"
-    alias   emacs64-244-ime="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/64/emacs-24.4-IME-patched/bin/runemacs.exe${MY_EMACS_DEFAULT_OPTIONS}"
     alias   emacs64-245="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/64/emacs-24.5/bin/runemacs.exe${MY_EMACS_DEFAULT_OPTIONS}"
     alias   emacs64-245-ime="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/64/emacs-24.5-IME-patched/bin/runemacs.exe${MY_EMACS_DEFAULT_OPTIONS}"
     alias   emacs64-251-ime="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/64/emacs-25.1-IME-patched/bin/runemacs.exe${MY_EMACS_DEFAULT_OPTIONS}"
 
-    alias   emacs32=emacs32-243-1
-    # alias   emacs32=emacs32-243-2
-    # alias   emacs64=emacs64-234
-    # alias   emacs64=emacs64-244
-    # alias   emacs64=emacs64-244-ime
+    # alias   emacs32=emacs32-251-ime
     # alias   emacs64=emacs64-245-ime
     alias   emacs64=emacs64-251-ime
 
