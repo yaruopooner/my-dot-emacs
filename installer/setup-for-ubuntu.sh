@@ -20,7 +20,7 @@ sudo -E apt-get -y build-dep emacs24
 mkdir work
 pushd work
 
-wget http://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.gz 
+wget --timestamping http://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.gz 
 tar -zxf emacs-24.5.tar.gz
 cd emacs-24.5
 ./configure
