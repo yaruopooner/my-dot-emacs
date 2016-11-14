@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2014/11/06.15:01:34
+;;; last updated : 2016/11/14.19:38:56
 
 
 ;;==============================================================================
@@ -78,13 +78,14 @@
 ;; add highlight keywords
 ;; (SUBEXP FACENAME [OVERRIDE [LAXMATCH]])
 ;; OVERRIDE: keep, prepend, append
-(cl-dolist (mode '(emacs-lisp-mode))
-  (font-lock-add-keywords
-   mode
-   '(
-     ("\\<\\(cl-\\(?:defun\\|defmacro\\|function\\|dolist\\|return-from\\|case\\|member\\|assoc\\|rassoc\\|delete\\|remove\\|defsubst\\|sort\\|loop\\|mapcar\\|labels\\)\\)\\>" 1 font-lock-keyword-face append)
-     ("\\<\\(defvar-local\\)\\>" 1 font-lock-keyword-face append)
-     )))
+;; disable, because supported cl-* and defvar-local from emacs 25.1
+;; (cl-dolist (mode '(emacs-lisp-mode))
+;;   (font-lock-add-keywords
+;;    mode
+;;    '(
+;;      ("\\<\\(cl-\\(?:defun\\|defmacro\\|function\\|dolist\\|return-from\\|case\\|member\\|assoc\\|rassoc\\|delete\\|remove\\|defsubst\\|sort\\|loop\\|mapcar\\|labels\\)\\)\\>" 1 font-lock-keyword-face append)
+;;      ("\\<\\(defvar-local\\)\\>" 1 font-lock-keyword-face append)
+;;      )))
 
 
 
