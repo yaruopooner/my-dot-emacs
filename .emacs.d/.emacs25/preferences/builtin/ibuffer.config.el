@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2013/07/27.15:13:46
+;;; last updated : 2016/11/14.15:24:54
 
 
 ;;==================================================================================================
@@ -82,7 +82,8 @@
          ("Code : lua"  (mode . lua-mode))
 
          ("Code : Shell Script"  (or
-                                  (mode . sh-mode)    
+                                  (mode . sh-mode)
+                                  (mode . bat-mode)
                                   (mode . powershell-mode)))
 
          ("snippet"  (mode . snippet-mode))
