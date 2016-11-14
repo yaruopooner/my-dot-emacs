@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2016/11/14.19:52:26
+;;; last updated : 2016/11/14.20:07:13
 
 
 ;;==============================================================================
@@ -103,6 +103,7 @@
   (setq indent-tabs-mode nil)         ;インデントTABモード(t:TAB, nil:whitespace) （nilはTABをwhitespaceに変換）
 
   (setq comment-start "@rem ")
+  ;; (setq comment-start-skip "\\(@?rem \\).*")
   )
 
 
