@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2016/09/17.05:50:14
+;;; last updated : 2016/11/14.16:38:31
 
 
 ;;==============================================================================
@@ -123,6 +123,7 @@
                       "emacs-lisp-mode.config"     ;; Emacs Lisp Mode
                       "cc-mode.config"             ;; C/C++/Java Mode
                       "js-mode.config"             ;; Java Script Mode
+                      "shell-script-mode.config"   ;; shell script Mode(sh/bat/ps1)
                       "align.config"               ;; text alignment
                       "cedet.config"               ;; Collection of Emacs Development Environment Tools
                       "flymake.config"             ;; flymake
