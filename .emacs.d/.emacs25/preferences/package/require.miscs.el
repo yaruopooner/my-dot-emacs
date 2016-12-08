@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2015/10/13.19:47:51
+;;; last updated : 2016/12/08.18:31:58
 
 
 ;;==================================================================================================
@@ -67,7 +67,13 @@
 
 ;; (setq magit-last-seen-setup-instructions "1.4.0")
 (setq magit-uniquify-buffer-names nil)
-
+(add-to-list 'process-coding-system-alist '("git" utf-8 . utf-8))
+(add-hook 'git-commit-mode-hook
+          '(lambda ()
+             (set-buffer-file-coding-system 'utf-8)))
+;; 本来は coding-system.config.el にて↓を有効化すればよいのだが、win環境で問題が発生するために個別設定
+;; (prefer-coding-system 'utf-8)
+;; (setq default-process-coding-system 'utf-8)
 
 
 (provide 'require.miscs)
