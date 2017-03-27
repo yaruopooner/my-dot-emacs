@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2014/10/30.14:41:23
+;;; last updated : 2017/03/28.03:58:31
 
 
 ;;==============================================================================
@@ -20,7 +20,7 @@
 
 ;; パッケージ参照URL追加
 ;; (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("melpa"     . "http://melpa.milkbox.net/packages/"))
+(add-to-list 'package-archives '("melpa"     . "http://melpa.org/packages/"))
 
 ;; To fix MELPA problem.
 (setq url-http-attempt-keepalives nil)
