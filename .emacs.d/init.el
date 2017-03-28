@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2014/10/17.13:20:36
+;;; last updated : 2017/03/28.13:34:26
 
 
 ;;==============================================================================
@@ -70,7 +70,7 @@
 
 (let ((proxies '(("http" . "http_proxy")
                  ("https" . "https_proxy")))
-      (pattern-format "\\(?:%s://\\)?\\(.*\\)$")
+      (pattern-format "\\(?:%s://\\)?\\(.+\\)$")
       pattern
       url)
   (dolist (proxy proxies)
