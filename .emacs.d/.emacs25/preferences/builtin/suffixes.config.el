@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2015/07/02.21:59:23
+;;; last updated : 2017/05/22.16:03:53
 
 
 ;;==============================================================================
@@ -21,12 +21,12 @@
 
 ;; Suffixes <---> Mode  Connection                                              
 (setq auto-mode-alist (append '(
-                                ("\\.grep$"            . compilation-mode)
-                                ("\\.\\(org\\|txt\\)$" . org-mode)
-                                ("\\.\\(json\\|js\\)$" . js2-mode)
-                                ("\\.xml$"             . xml-mode)
-                                ("\\.html?$"           . html-helper-mode)
-                                ("\\.pl$"              . perl-mode)
+                                ("\\.grep$"             . compilation-mode)
+                                ("\\.\\(org\\|txt\\)$"  . org-mode)
+                                ("\\.\\(json\\|js\\)$"  . js2-mode)
+                                ("\\.\\(xml\\|xaml\\)$" . xml-mode)
+                                ("\\.html?$"            . html-helper-mode)
+                                ("\\.pl$"               . perl-mode)
                                 ) auto-mode-alist))
 
 
