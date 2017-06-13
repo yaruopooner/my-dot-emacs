@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2014/10/28.02:15:01
+;;; last updated : 2017/06/13.16:10:52
 
 
 ;;==============================================================================
@@ -22,13 +22,15 @@
 
 ;; 一括ロード
 (cl-dolist (theme '(
+                    msvs-like
                     black-bg-based
                     white-bg-based
                     ))
   (load-theme theme t t))
 
 
-(enable-theme 'black-bg-based)
+(enable-theme 'msvs-like)
+;; (enable-theme 'black-bg-based)
 ;; (enable-theme 'white-bg-based)
 
 ;; (add-hook 'after-init-hook '(lambda ()
