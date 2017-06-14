@@ -137,8 +137,8 @@
  ;; コメント区切り(Inherit > font-lock-comment-face)
  '(font-lock-comment-delimiter-face     ((t ( :foreground nil :background nil :weight unspecified :slant unspecified :underline unspecified :inherit font-lock-comment-face ))))
  ;; 定数＆ラベル＆名前空間
- ;; '(font-lock-constant-face              ((t ( :foreground "green1" :background nil :weight bold :slant normal :underline unspecified ))))
- '(font-lock-constant-face              ((t ( :foreground "#4ec9b0" :background nil :weight bold :slant normal :underline unspecified ))))
+ ;; '(font-lock-constant-face              ((t ( :foreground "#4ec9b0" :background nil :weight bold :slant normal :underline unspecified ))))
+ '(font-lock-constant-face              ((t ( :foreground "SpringGreen2" :background nil :weight bold :slant normal :underline unspecified ))))
  ;; ドキュメント(Inherit > font-lock-string-face)
  '(font-lock-doc-face                   ((t ( :foreground nil :background nil :weight unspecified :slant unspecified :underline unspecified :inherit font-lock-string-face ))))
  ;; ドキュメント(?)
@@ -156,8 +156,8 @@
  ;; 正規表現バックスラッシュ(Inherit > bold)
  '(font-lock-regexp-grouping-backslash  ((t ( :foreground nil :background nil :weight bold :slant normal :underline unspecified ))))
  ;; 文字列
- ;; '(font-lock-string-face                ((t ( :foreground "RosyBrown" :background nil :weight bold :slant normal :underline unspecified ))))
- '(font-lock-string-face                ((t ( :foreground "#d69d85" :background nil :weight bold :slant normal :underline unspecified ))))
+ '(font-lock-string-face                ((t ( :foreground "RosyBrown" :background nil :weight bold :slant normal :underline unspecified ))))
+ ;; '(font-lock-string-face                ((t ( :foreground "#d69d85" :background nil :weight bold :slant normal :underline unspecified ))))
  ;; 型指定子＆構造体宣言部＆クラス宣言部
  '(font-lock-type-face                  ((t ( :foreground "#00b0ff" :background nil :weight bold :slant normal :underline unspecified ))))
  ;; 変数名宣言部
