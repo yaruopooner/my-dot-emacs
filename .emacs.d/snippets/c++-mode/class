@@ -6,7 +6,7 @@ class ${1:typename}${2: : public ${3:base-typename}}
 {
 public:
     ${1:$(yas/substr yas-text "[^: ]*")}( void );
-    ${4:virtual }~${1:$(yas/substr yas-text "[^: ]*")}( void );
+    ${4:virtual }~${1:$(yas/substr yas-text "[^: ]*")}( void )${5:${6: override}}${7: = default};
 
     $0
 };
