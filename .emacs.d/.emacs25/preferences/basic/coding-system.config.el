@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2016/05/18.09:18:45
+;;; last updated : 2017/11/15.11:19:08
 
 
 ;;==============================================================================
@@ -39,7 +39,8 @@
 ;; dired/grep/shellなどでの日本語表示が化けるので下記のように個別設定を行っている
 ;;(prefer-coding-system 'utf-8)
 
-
+;; prefer-coding-system では BOM 付きの UTF-8 (utf-8-with-signature) を指定してはいけない。
+;; サブプロセスでの文字コードも変わってしまうので、 grep やコンパイルなどで外部プログラムをちゃんと呼び出せなくなる
 
 ;; 以下の設定で dired mode や shell mode で日本語が化けず、かつなるべく UTF-8 な環境で作業できる。
 ;; M-x grep-find で文字コード混在文書を検索でき、結果は UTF-8 で表示される。 
