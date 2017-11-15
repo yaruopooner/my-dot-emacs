@@ -4,7 +4,7 @@
 # --
 switch ( ${1:expression} )
 {
-    case    ${2:LABEL}:
+    case ${2:LABEL}:
         $0
         break;
     ${3:default:
