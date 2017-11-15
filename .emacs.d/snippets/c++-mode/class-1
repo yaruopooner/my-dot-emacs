@@ -7,7 +7,7 @@ class ${1:$$(yas-choose-value '("ENGINE_API" "GAME_API"))} ${2:typename} : publi
     NI_CLASS( $2, $3 );
 public:
     ${2:$(yas/substr yas-text "[^: ]*")}( const char* name );
-    ${4:virtual }~${2:$(yas/substr yas-text "[^: ]*")}( void );
+    ${4:virtual }~${1:$(yas/substr yas-text "[^: ]*")}( void )${5:${6: override}}${7: = default};
 
     $0
 };
