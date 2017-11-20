@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2015/03/30.01:56:31
+;;; last updated : 2017/11/20.18:21:07
 
 
 ;;==================================================================================================
@@ -24,6 +24,8 @@
 ;;------------------------------------------------------------------------------
 
 (add-to-list 'search-web-engines '("Weblio" "http://ejje.weblio.jp/content/%s" nil))
+(add-to-list 'search-web-engines '("google trans en" "https://translate.google.com/#en/ja/%s" nil))
+(add-to-list 'search-web-engines '("google trans ja" "https://translate.google.com/#ja/en/%s" nil))
 
 
 
