@@ -2,9 +2,9 @@
 #! /bin/sh
 
 
-EMACS_ARCHIVE_URI="http://ftp.gnu.org/gnu/emacs/emacs-25.3.tar.xz"
-readonly EMACS_ARCHIVE_NAME=$( basename "${EMACS_ARCHIVE_URI}" )
-readonly EMACS_VERSION_NAME=$( echo "${EMACS_ARCHIVE_NAME}" | sed -r "s/(emacs-[0-9]+\.[0-9]+).*/\1/" )
+declare -r EMACS_ARCHIVE_URI="http://ftp.gnu.org/gnu/emacs/emacs-25.3.tar.xz"
+declare -r EMACS_ARCHIVE_NAME=$( basename "${EMACS_ARCHIVE_URI}" )
+declare -r EMACS_VERSION_NAME=$( echo "${EMACS_ARCHIVE_NAME}" | sed -r "s/(emacs-[0-9]+\.[0-9]+).*/\1/" )
 
 
 wget --timestamping "${EMACS_ARCHIVE_URI}"
@@ -15,6 +15,13 @@ if $( [ ! -d "${EMACS_VERSION_NAME}" ] && [ -e "${EMACS_ARCHIVE_NAME}" ] ); then
 fi
 
 pushd "${EMACS_VERSION_NAME}"
+
+
+# for ubuntu 16.10
+sudo -E apt-get -y install libgtk-3-dev
+sudo -E apt-get -y install libxpm-dev libjpeg-dev libgif-dev libtiff5-dev
+sudo -E apt-get -y install libncurses5-dev
+
 
 ./configure --with-modules --without-compress-install
 
