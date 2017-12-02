@@ -2,7 +2,7 @@
 #! /bin/sh
 
 
-EMACS_ARCHIVE_URI="http://ftp.gnu.org/gnu/emacs/emacs-25.1.tar.xz"
+EMACS_ARCHIVE_URI="http://ftp.gnu.org/gnu/emacs/emacs-25.3.tar.xz"
 readonly EMACS_ARCHIVE_NAME=$( basename "${EMACS_ARCHIVE_URI}" )
 readonly EMACS_VERSION_NAME=$( echo "${EMACS_ARCHIVE_NAME}" | sed -r "s/(emacs-[0-9]+\.[0-9]+).*/\1/" )
 

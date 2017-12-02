@@ -13,15 +13,15 @@ sudo -E apt-get -y install subversion
 sudo -E apt-get -y install cmake
 
 sudo -E apt-get -y install build-essential
-sudo -E apt-get -y build-dep emacs24
+sudo -E apt-get -y build-dep emacs25
 
-# sudo -E apt-get -y install emacs24 emacs24-el emacs24-common-non-dfsg
+# sudo -E apt-get -y install emacs25 emacs25-el emacs25-common-non-dfsg
 
 mkdir work
 pushd work
 
-wget --timestamping http://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.gz 
-tar -zxf emacs-24.5.tar.gz
-cd emacs-24.5
+wget --timestamping http://ftp.gnu.org/gnu/emacs/emacs-25.3.tar.gz 
+tar -zxf emacs-25.3.tar.gz
+cd emacs-25.3
 ./configure
 sudo make install
