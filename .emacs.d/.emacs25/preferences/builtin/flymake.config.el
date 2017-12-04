@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2014/10/03.01:56:15
+;;; last updated : 2017/12/04.16:18:03
 
 
 ;;==============================================================================
@@ -122,13 +122,13 @@
 (defun flymake:display-current-line-err-by-minibuf ()
   "Displays the error/warning for the current line in the minibuffer"
   (interactive)
-  (let* ((line-no            (flymake-current-line-no))
+  (let* ((line-no (line-number-at-pos))
          (line-err-info-list (nth 0 (flymake-find-err-info flymake-err-info line-no)))
-         (count              (length line-err-info-list)))
+         (count (length line-err-info-list)))
     (while (> count 0)
       (when line-err-info-list
-        (let* ((text       (flymake-ler-text (nth (1- count) line-err-info-list)))
-               (line       (flymake-ler-line (nth (1- count) line-err-info-list))))
+        (let* ((text (flymake-ler-text (nth (1- count) line-err-info-list)))
+               (line (flymake-ler-line (nth (1- count) line-err-info-list))))
           (message "[%s] %s" line text)))
       (setq count (1- count)))))
 
@@ -137,13 +137,11 @@
 (defun flymake:display-current-line-err-by-popup ()
   "Display a menu with errors/warnings for current line if it has errors and/or warnings."
   (interactive)
-  (let* ((line-no            (flymake-current-line-no))
-         (line-err-info-list (nth 0 (flymake-find-err-info flymake-err-info line-no)))
-         (menu-data          (flymake-make-err-menu-data line-no line-err-info-list)))
-    (if menu-data
-        (popup-tip (mapconcat (lambda (e) (nth 0 e))
-                              (nth 1 menu-data)
-                              "\n")))))
+  (let* ((line-no (line-number-at-pos))
+         (errors (nth 0 (flymake-find-err-info flymake-err-info line-no)))
+         (texts (mapconcat (lambda (x) (flymake-ler-text x)) errors "\n")))
+    (when texts
+      (popup-tip texts))))
 
 
 ;; popup が存在する場合だけ使用
