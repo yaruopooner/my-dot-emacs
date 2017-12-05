@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2016/12/08.18:31:58
+;;; last updated : 2017/12/05.19:06:10
 
 
 ;;==================================================================================================
@@ -74,6 +74,11 @@
 ;; 本来は coding-system.config.el にて↓を有効化すればよいのだが、win環境で問題が発生するために個別設定
 ;; (prefer-coding-system 'utf-8)
 ;; (setq default-process-coding-system 'utf-8)
+
+
+;; domain Mode
+(require 'domain-mode)
+
 
 
 (provide 'require.miscs)
