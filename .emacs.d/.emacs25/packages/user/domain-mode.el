@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix ; lexical-binding: nil -*-
-;;; last updated : 2017/12/05.19:04:09
+;;; last updated : 2017/12/06.10:48:48
 
 
 
@@ -8,18 +8,18 @@
 
 (define-generic-mode domain-mode
   ;; COMMENT-LIST
-  nil
+  '("//")
 
   ;; KEYWORD-LIST
-  nil
+  '("and" "or" "=" "not" "call")
 
   ;; FONT-LOCK-LIST
-  '(("(:domain\\s-+\\([^[:space:]\n]+\\).*$" . font-lock-keyword-face)
-    ("(:include\\s-+\\([^)]+\\).*$" . font-lock-preprocessor-face)
-    ("(:constant\\s-+(\\(.+\\)$" . font-lock-constant-face)
-    ("(:method\\s-+(\\([^)]+\\).*$" . font-lock-function-name-face)
-    ("(:axiom\\s-+(\\([^)]+\\).*$" . font-lock-function-name-face)
-    ("\\(//.*$\\)" . font-lock-comment-face)
+  '((":domain\\s-+\\([^[:space:]\n]+\\).*$" . font-lock-keyword-face)
+    (":include\\s-+\\([^)]+\\).*$" . font-lock-preprocessor-face)
+    (":constant[[:space:]\n]+" . font-lock-constant-face)
+    ("\\(:\\(?:method\\|axiom\\)\\s-+([[:alpha:]_]+\\)" 1 font-lock-function-name-face)
+    ("\\([?@#][[:alpha:]_]+\\)" 1 font-lock-constant-face)
+    ("\\(![[:alpha:]_]+\\)" 1 font-lock-builtin-face)
     )
 
   ;; AUTO-MODE-LIST
@@ -31,12 +31,13 @@
   '((lambda ()
       (setq imenu-generic-expression
             '(
-              ("domain" "(:domain\\s-+\\([^[:space:]\n]+\\).*$" 1)
-              ("include" "(:include\\s-+\\([^)]+\\).*$" 1)
-              ("constant" "(:constant\\s-+(\\(.+\\)$" 1)
-              ("method" "(:method\\s-+(\\([^)]+\\).*$" 1)
-              ("axiom" "(:axiom\\s-+(\\([^)]+\\).*$" 1)
-              ))))
+              ("domain" ":domain\\s-+\\([^[:space:]\n]+\\).*$" 1)
+              ("include" ":include\\s-+\\([^)]+\\).*$" 1)
+              ("constant" ":constant\\s-*[\n]?" 0)
+              ("method" ":method\\s-+(\\([[:alpha:]_]+\\)" 1)
+              ("axiom" ":axiom\\s-+(\\([[:alpha:]_]+\\)" 1)
+              )))
+    linum-mode)
 
   ;; mode DOCSTRING
   "Major mode for Domain text")
