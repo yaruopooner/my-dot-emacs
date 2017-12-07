@@ -1,12 +1,12 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix ; lexical-binding: nil -*-
-;;; last updated : 2017/12/06.10:48:48
+;;; last updated : 2017/12/06.15:00:02
 
 
 
 (require 'generic)
 
 
-(define-generic-mode domain-mode
+(define-generic-mode 'domain-mode
   ;; COMMENT-LIST
   '("//")
 
@@ -29,6 +29,8 @@
   ;; FUNCTION-LIST
   ;; major mode initial functions
   '((lambda ()
+      (setq tab-width 4)                  ;タブ幅
+      (setq indent-tabs-mode nil)         ;インデントTABモード(t:TAB, nil:whitespace) （nilはTABをtab-width分のwhitespaceに変換）
       (setq imenu-generic-expression
             '(
               ("domain" ":domain\\s-+\\([^[:space:]\n]+\\).*$" 1)
