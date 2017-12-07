@@ -24,7 +24,7 @@ fi
 tar -zxvf ${ARCHIVE_FILE}
 pushd ./${ARCHIVE_NAME}
 ./configure
-make install
+make -j8 install
 
 popd
 

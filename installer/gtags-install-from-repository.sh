@@ -26,5 +26,5 @@ fi
 
 sh reconf.sh 
 ./configure
-make install
+make -j8 install
 
