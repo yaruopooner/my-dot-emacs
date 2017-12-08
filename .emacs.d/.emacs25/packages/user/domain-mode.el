@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix ; lexical-binding: nil -*-
-;;; last updated : 2017/12/08.18:32:15
+;;; last updated : 2017/12/08.19:00:51
 
 
 
@@ -60,11 +60,11 @@
 
 (defun domain-convert-to-upper-camel-case-at-point ()
   (interactive)
-  (message "%s" (domain-convert-to-upper-camel-case (substring-no-properties (thing-at-point 'symbol)))))
+  (kill-new (message "%s" (domain-convert-to-upper-camel-case (substring-no-properties (thing-at-point 'symbol))))))
 
 (defun domain-convert-to-snake-case-at-point ()
   (interactive)
-  (message "%s" (domain-convert-to-snake-case (substring-no-properties (thing-at-point 'symbol)))))
+  (kill-new (message "%s" (domain-convert-to-snake-case (substring-no-properties (thing-at-point 'symbol))))))
 
 
 
