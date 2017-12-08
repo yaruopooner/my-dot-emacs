@@ -50,8 +50,8 @@ builtin-parser:\
 #
 user-custom|User custom plugin parser:\
 	:tc=common:\
-	:langmap=c\:.c.h:\
-	:gtags_parser=c\:/usr/local/lib/gtags/user-custom.la:
+	:langmap=domain\:.Domain:\
+	:gtags_parser=domain\:/usr/local/lib/gtags/user-custom\:domain:
 #
 # Plug-in parser to use Exuberant Ctags.
 #
