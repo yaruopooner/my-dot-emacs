@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix ; lexical-binding: nil -*-
-;;; last updated : 2017/12/06.15:00:02
+;;; last updated : 2017/12/08.18:32:15
 
 
 
@@ -18,8 +18,8 @@
     (":include\\s-+\\([^)]+\\).*$" . font-lock-preprocessor-face)
     (":constant[[:space:]\n]+" . font-lock-constant-face)
     ("\\(:\\(?:method\\|axiom\\)\\s-+([[:alpha:]_]+\\)" 1 font-lock-function-name-face)
-    ("\\([?@#][[:alpha:]_]+\\)" 1 font-lock-constant-face)
-    ("\\(![[:alpha:]_]+\\)" 1 font-lock-builtin-face)
+    ("\\([?@][[:alpha:]_]+\\)" 1 font-lock-constant-face)
+    ("\\([!#][[:alpha:]_]+\\)" 1 font-lock-builtin-face)
     )
 
   ;; AUTO-MODE-LIST
@@ -38,11 +38,33 @@
               ("constant" ":constant\\s-*[\n]?" 0)
               ("method" ":method\\s-+(\\([[:alpha:]_]+\\)" 1)
               ("axiom" ":axiom\\s-+(\\([[:alpha:]_]+\\)" 1)
-              )))
+              ))
+      (setq ac-sources '(ac-source-imenu ac-source-gtags))
+      (local-set-key (kbd "<tab>") #'auto-complete)
+      )
+    auto-complete-mode
+    helm-gtags-mode
     linum-mode)
 
   ;; mode DOCSTRING
   "Major mode for Domain text")
+
+
+(defun domain-convert-to-upper-camel-case (name)
+  (eval `(concat ,@(mapcar #'capitalize (split-string name "[^[:word:]]")))))
+
+(defun domain-convert-to-snake-case (name)
+  (setq name (replace-regexp-in-string "\\([[:lower:]]\\)\\([[:upper:]]\\)" "\\1_\\2" name))
+  (setq name (replace-regexp-in-string "\\([[:alpha:]_]+\\).*" "\\1" name))
+  (downcase name))
+
+(defun domain-convert-to-upper-camel-case-at-point ()
+  (interactive)
+  (message "%s" (domain-convert-to-upper-camel-case (substring-no-properties (thing-at-point 'symbol)))))
+
+(defun domain-convert-to-snake-case-at-point ()
+  (interactive)
+  (message "%s" (domain-convert-to-snake-case (substring-no-properties (thing-at-point 'symbol)))))
 
 
 
