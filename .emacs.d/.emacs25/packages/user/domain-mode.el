@@ -1,9 +1,10 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix ; lexical-binding: nil -*-
-;;; last updated : 2017/12/08.19:00:51
+;;; last updated : 2017/12/11.11:10:58
 
 
 
 (require 'generic)
+(require 's)
 
 
 (define-generic-mode 'domain-mode
@@ -51,12 +52,16 @@
 
 
 (defun domain-convert-to-upper-camel-case (name)
-  (eval `(concat ,@(mapcar #'capitalize (split-string name "[^[:word:]]")))))
-
+  ;; (eval `(concat ,@(mapcar #'capitalize (split-string name "[^[:word:]]")))))
+  (s-upper-camel-case name))
+  
+  
 (defun domain-convert-to-snake-case (name)
-  (setq name (replace-regexp-in-string "\\([[:lower:]]\\)\\([[:upper:]]\\)" "\\1_\\2" name))
-  (setq name (replace-regexp-in-string "\\([[:alpha:]_]+\\).*" "\\1" name))
-  (downcase name))
+  ;; (setq name (replace-regexp-in-string "\\([[:lower:]]\\)\\([[:upper:]]\\)" "\\1_\\2" name))
+  ;; (setq name (replace-regexp-in-string "\\([[:alpha:]_]+\\).*" "\\1" name))
+  ;; (downcase name))
+  (s-snake-case name))
+
 
 (defun domain-convert-to-upper-camel-case-at-point ()
   (interactive)
