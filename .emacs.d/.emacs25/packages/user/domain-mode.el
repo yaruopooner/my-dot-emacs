@@ -1,10 +1,30 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix ; lexical-binding: nil -*-
-;;; last updated : 2017/12/11.11:10:58
+;;; last updated : 2017/12/12.17:31:42
 
 
 
 (require 'generic)
 (require 's)
+
+
+;; error message sample
+;; [drive]:\[path0]\[path1]\....\[filename].Domain/[line]/[column]: Warning: Variable ?threata is unused.
+;; [drive]:\[path0]\[path1]\....\[filename].Domain/[line]/[column]: Error: See call to axiom is_threat_valid/1 here.
+
+(defconst domain--flymake-allowed-file-name-masks '(("\\.\\(?:domain\\)\\'" domain--flymake-command-generator)))
+
+(defconst domain--flymake-err-line-patterns
+  '(("^\\([[:alpha:]]:\\\\[^/]+\\)/\\([[:digit:]]+\\)/\\([[:digit:]]+\\):[[:space:]]\\(.*\\)$" 1 2 3 4))
+
+  "  (REGEXP FILE-IDX LINE-IDX COL-IDX ERR-TEXT-IDX).")
+
+
+(defun domain--flymake-command-generator ()
+  (let ((compile-file (flymake-init-create-temp-buffer-copy 'flymake-create-temp-inplace)))
+    `("cmd"
+      ("/c" "d:/Dev/JAC/NIP/Assets/Game_Assets/Tools/HtnTranslator/translate_file_.bat" ,compile-file))))
+
+
 
 
 (define-generic-mode 'domain-mode
@@ -42,7 +62,16 @@
               ))
       (setq ac-sources '(ac-source-imenu ac-source-gtags))
       (local-set-key (kbd "<tab>") #'auto-complete)
+      ;; flymake
+      (local-set-key (kbd "M-[") #'flymake:display-prev-error)
+      (local-set-key (kbd "M-]") #'flymake:display-next-error)
+      (set (make-local-variable 'flymake-allowed-file-name-masks) domain--flymake-allowed-file-name-masks)
+      (set (make-local-variable 'flymake-err-line-patterns) domain--flymake-err-line-patterns)
+      ;; 複数バッファのflymakeが同時にenableになるとflymake-processでpipe errorになるのを抑制
+      (set (make-local-variable 'flymake-start-syntax-check-on-find-file) nil)
+      (flymake-mode t)
       )
+    flymake:hook-functions
     auto-complete-mode
     helm-gtags-mode
     linum-mode)
