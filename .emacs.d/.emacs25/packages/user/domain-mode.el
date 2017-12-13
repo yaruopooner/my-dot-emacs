@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix ; lexical-binding: nil -*-
-;;; last updated : 2017/12/12.17:31:42
+;;; last updated : 2017/12/13.20:48:41
 
 
 
@@ -22,7 +22,7 @@
 (defun domain--flymake-command-generator ()
   (let ((compile-file (flymake-init-create-temp-buffer-copy 'flymake-create-temp-inplace)))
     `("cmd"
-      ("/c" "d:/Dev/JAC/NIP/Assets/Game_Assets/Tools/HtnTranslator/translate_file_.bat" ,compile-file))))
+      ("/c" "d:/Dev/JAC/NIP/Assets/Game_Assets/Tools/HtnTranslator/translate_file_so.bat" ,compile-file))))
 
 
 
