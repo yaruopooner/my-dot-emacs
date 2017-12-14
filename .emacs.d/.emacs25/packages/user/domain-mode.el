@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix ; lexical-binding: nil -*-
-;;; last updated : 2017/12/13.20:48:41
+;;; last updated : 2017/12/14.15:56:53
 
 
 
@@ -14,7 +14,8 @@
 (defconst domain--flymake-allowed-file-name-masks '(("\\.\\(?:domain\\)\\'" domain--flymake-command-generator)))
 
 (defconst domain--flymake-err-line-patterns
-  '(("^\\([[:alpha:]]:\\\\[^/]+\\)/\\([[:digit:]]+\\)/\\([[:digit:]]+\\):[[:space:]]\\(.*\\)$" 1 2 3 4))
+  ;; '(("^\\([[:alpha:]]:\\\\[^/]+\\)/\\([[:digit:]]+\\)/\\([[:digit:]]+\\):[[:space:]]\\(.*\\)$" 1 2 3 4))    ;;  ultraedit
+  '(("^\\([[:alpha:]]:\\\\[^(]+\\)(\\([[:digit:]]+\\),\\([[:digit:]]+\\)):[[:space:]]\\(.*\\)$" 1 2 3 4))    ;;  visual studio
 
   "  (REGEXP FILE-IDX LINE-IDX COL-IDX ERR-TEXT-IDX).")
 
