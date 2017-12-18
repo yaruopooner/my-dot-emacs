@@ -8,11 +8,15 @@ pushd ${WORK_DIR}
 echo ${WORK_DIR}
 pushd ${WORK_DIR}
 
-declare -r ARCHIVE_NAME="global-6.5.7"
+declare -r ARCHIVE_NAME="global-6.6.1"
 declare -r ARCHIVE_FILE="${ARCHIVE_NAME}.tar.gz"
 
+# for Win32 standalone
+# wget --timestamping "http://adoxa.altervista.org/global/glo656s.zip"
+
 # wget --timestamping "ftp://ftp.gnu.org/pub/gnu/global/${ARCHIVE_FILE}"
-wget --timestamping "http://tamacom.com/global/${ARCHIVE_FILE}"
+wget --timestamping "https://ftp.gnu.org/pub/gnu/global/${ARCHIVE_FILE}"
+# wget --timestamping "http://tamacom.com/global/${ARCHIVE_FILE}"
 
 if [ -d ./${ARCHIVE_NAME} ]; then
     pushd ./${ARCHIVE_NAME}
