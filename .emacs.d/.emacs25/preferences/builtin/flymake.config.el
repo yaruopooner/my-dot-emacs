@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2017/12/04.16:18:03
+;;; last updated : 2017/12/12.17:27:28
 
 
 ;;==============================================================================
@@ -154,6 +154,20 @@
     (flymake:display-current-line-err-by-minibuf)))
 
 
+(defun flymake:display-prev-error ()
+  (interactive)
+  
+  (flymake-goto-prev-error)
+  (flymake:display-current-line-err))
+
+
+(defun flymake:display-next-error ()
+  (interactive)
+  
+  (flymake-goto-next-error)
+  (flymake:display-current-line-err))
+
+
 
 (defun flymake:hook-functions ()
   ;; 新規作成バッファでファイルとして一度も保存されていない場合はflymake回避(主にorg-modeのソースコードセクションに対する対策)
@@ -174,16 +188,8 @@
     ;;                     ))
 
     ;; カーソル移動と同時に表示
-    (local-set-key (kbd "M-[") '(lambda () 
-                                  (interactive)
-                                  (flymake-goto-prev-error)
-                                  (flymake:display-current-line-err)
-                                  ))
-    (local-set-key (kbd "M-]") '(lambda () 
-                                  (interactive)
-                                  (flymake-goto-next-error)
-                                  (flymake:display-current-line-err)
-                                  ))))
+    (local-set-key (kbd "M-[") #'flymake:display-prev-error)
+    (local-set-key (kbd "M-]") #'flymake:display-next-error)))
 
 
 
