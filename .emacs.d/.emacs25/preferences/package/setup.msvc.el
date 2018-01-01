@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2015/02/22.04:51:30
+;;; last updated : 2018/01/02.01:26:37
 
 
 ;;==================================================================================================
@@ -30,7 +30,7 @@
 
 (when (msvc-initialize)
   (msvc-flags-load-db :parsing-buffer-delete-p t)
-  (add-hook 'c-mode-common-hook 'msvc-mode-on t))
+  (add-hook 'c-mode-common-hook #'msvc-mode-on t))
 
 
 
