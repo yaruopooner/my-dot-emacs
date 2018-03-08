@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2017/12/05.19:06:10
+;;; last updated : 2018/03/08.10:31:09
 
 
 ;;==================================================================================================
@@ -59,12 +59,21 @@
 
 
 
+;; P4V
 (when (require 'p4)
+  (setq p4-global-key-prefix (kbd "C-c p"))
+  ;; (setq p4-global-key-prefix (default:C-c p))
+  (setenv "P4CHARSET" "utf8")
+  (setenv "P4DIFF" "/usr/local/bin/diff -dupU8")
+  ;; (setenv "P4MERGE" "/usr/local/bin/emerge.bat")
+  (setenv "P4EDITGOR" "emacs")
   )
+
 
 ;; visual-regexp
 ;; (global-set-key (kbd "M-%") 'vr/query-replace)
 
+;; magit mode
 ;; (setq magit-last-seen-setup-instructions "1.4.0")
 (setq magit-uniquify-buffer-names nil)
 (add-to-list 'process-coding-system-alist '("git" utf-8 . utf-8))

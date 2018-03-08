@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2015/01/12.05:15:57
+;;; last updated : 2018/03/08.10:51:32
 
 
 ;;==================================================================================================
@@ -18,6 +18,7 @@
 
 
 (require 'google-translate)
+(require 'google-translate-smooth-ui)
 
 
 
@@ -55,10 +56,7 @@
                   (format "\\`[%s]+\\'" google-translate-english-chars)
                   string)))
     (run-at-time 0.1 nil 'deactivate-mark)
-    (google-translate-translate
-     (if asciip "en" "ja")
-     (if asciip "ja" "en")
-     string)))
+    (google-translate-translate (if asciip "en" "ja") (if asciip "ja" "en") string)))
 
 
 (global-set-key (kbd "C-c t") 'google-translate-enja-or-jaen)
