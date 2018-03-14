@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2018/03/14.16:03:33
+;;; last updated : 2018/03/14.16:10:12
 
 
 ;;==============================================================================
@@ -179,6 +179,7 @@
                             ;; imenu+ ;melpa
 ;;                            hideshowvis ;melpa
                             yasnippet   ;melpa
+                            yasnippet-snippets   ;melpa
 ;;                            dropdown-list ;melpa
                             clang-format  ;melpa
                             ;; ggtags ;melpa
