@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2016/11/14.16:38:31
+;;; last updated : 2018/03/14.16:03:33
 
 
 ;;==============================================================================
@@ -149,7 +149,7 @@
 
 
 (defconst de:package-list '(
-                            cygwin-mount  ;melpa
+;;                            cygwin-mount  ;melpa
                             auto-complete ;melpa
                             pos-tip       ;melpa
                             fuzzy         ;melpa
@@ -177,9 +177,9 @@
                             color-moccur ;melpa
                             ;; visual-regexp ;melpa
                             ;; imenu+ ;melpa
-                            hideshowvis ;melpa
+;;                            hideshowvis ;melpa
                             yasnippet   ;melpa
-                            dropdown-list ;melpa
+;;                            dropdown-list ;melpa
                             clang-format  ;melpa
                             ;; ggtags ;melpa
                             dsvn ;melpa
