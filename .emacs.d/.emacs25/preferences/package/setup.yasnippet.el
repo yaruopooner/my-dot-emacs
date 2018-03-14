@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2015/01/05.15:20:04
+;;; last updated : 2018/02/19.10:47:28
 
 
 ;;==================================================================================================
@@ -30,7 +30,7 @@
 (require 'yasnippet)
 
 
-(require 'dropdown-list)
+;; (require 'dropdown-list)
 
 
 
