@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2015/05/25.00:35:07
+;;; last updated : 2018/04/23.11:27:08
 
 
 ;;==================================================================================================
@@ -31,14 +31,14 @@
 
 
 ;; (setq ac-clang-server-type 'debug)
-(setq ac-clang-server-stdin-buffer-size 2)
-(setq ac-clang-server-stdout-buffer-size 2)
-;; (setq ac-clang-clang-translation-unit-flags "CXTranslationUnit_PrecompiledPreamble|CXTranslationUnit_CacheCompletionResults")
-;; (setq ac-clang-clang-translation-unit-flags "CXTranslationUnit_CacheCompletionResults")
+(setq clang-server-stdin-buffer-size 2)
+(setq clang-server-stdout-buffer-size 2)
+;; (setq clang-server-translation-unit-flags "CXTranslationUnit_PrecompiledPreamble|CXTranslationUnit_CacheCompletionResults")
+;; (setq clang-server-translation-unit-flags "CXTranslationUnit_CacheCompletionResults")
 
-;; (setq ac-clang-clang-complete-results-limit 500)
-;; (setq ac-clang-clang-complete-results-limit 1000)
-;; (setq ac-clang-clang-complete-results-limit 2000)
+;; (setq clang-server-complete-results-limit 500)
+;; (setq clang-server-complete-results-limit 1000)
+;; (setq clang-server-complete-results-limit 2000)
 (setq w32-pipe-read-delay 0)
 
 (ac-clang-initialize)
