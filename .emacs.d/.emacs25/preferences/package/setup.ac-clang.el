@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2018/04/23.11:27:08
+;;; last updated : 2018/05/15.12:53:14
 
 
 ;;==================================================================================================
@@ -39,7 +39,8 @@
 ;; (setq clang-server-complete-results-limit 500)
 ;; (setq clang-server-complete-results-limit 1000)
 ;; (setq clang-server-complete-results-limit 2000)
-(setq w32-pipe-read-delay 0)
+(when (eq system-type 'windows-nt)
+  (setq w32-pipe-read-delay 0))
 
 (ac-clang-initialize)
 
