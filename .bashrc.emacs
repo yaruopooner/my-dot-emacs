@@ -1,5 +1,5 @@
 # -*- mode: shell-script ; coding: utf-8-unix -*-
-# last updated : 2017/09/21.18:46:46
+# last updated : 2018/05/30.19:14:17
 
 # cygwin version 1.7x~
 
@@ -29,11 +29,13 @@ if $cygwin; then
     alias   emacs64-251-ime="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/64/emacs-25.1-IME-patched/bin/runemacs.exe ${MY_EMACS_DEFAULT_OPTIONS}"
     alias   emacs64-252-ime="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/64/emacs-25.2-IME-patched/bin/runemacs.exe ${MY_EMACS_DEFAULT_OPTIONS}"
     alias   emacs64-253-ime="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/64/emacs-25.3-IME-patched/bin/runemacs.exe ${MY_EMACS_DEFAULT_OPTIONS}"
+    alias   emacs64-261-ime="${MY_EMACS_INSTALLED_PARENT_DIRECTORY}/64/emacs-26.1-IME-patched/bin/runemacs.exe ${MY_EMACS_DEFAULT_OPTIONS}"
 
     # alias   emacs32=emacs32-251-ime
     # alias   emacs64=emacs64-245-ime
     # alias   emacs64=emacs64-252-ime
     alias   emacs64=emacs64-253-ime
+    # alias   emacs64=emacs64-261-ime
 
     # alias   emacs=emacs32
     alias   emacs=emacs64
