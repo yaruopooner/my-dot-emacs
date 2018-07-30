@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2018/05/30.17:59:27
+;;; last updated : 2018/07/28.03:28:04
 
 
 ;;==================================================================================================
@@ -29,6 +29,9 @@
 
 ;; (defadvice linum-schedule (around my-linum-schedule () activate)
 ;;   (run-with-idle-timer 0.2 nil #'linum-update-current))
+
+;; 最大行数分の表示幅で開始する
+(setq display-line-numbers-width-start t)
 
 
 ;;------------------------------------------------------------------------------
