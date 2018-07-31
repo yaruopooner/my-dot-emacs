@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2018/03/14.16:10:12
+;;; last updated : 2018/07/30.10:33:51
 
 
 ;;==============================================================================
@@ -153,7 +153,7 @@
                             auto-complete ;melpa
                             pos-tip       ;melpa
                             fuzzy         ;melpa
-                            anything      ;melpa
+                            ;; anything      ;melpa
                             ;; descbinds-anything ;marmalade
                             helm               ;melpa
                             helm-descbinds     ;melpa
