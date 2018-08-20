@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name : emacs file variables
+# key: emacs-file-variables
+# --
+/* -*- mode: ${1:c++} ; coding: ${2:utf-8-unix} -*- */
+/*  last updated : 2018/08/20.15:38:32 */
+
+
+$0
