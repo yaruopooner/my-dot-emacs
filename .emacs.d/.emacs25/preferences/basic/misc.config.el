@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2015/07/29.15:42:08
+;;; last updated : 2018/10/01.21:10:54
 
 
 ;;==============================================================================
@@ -130,7 +130,7 @@
 (require 'grep)
 
 ;; find & (grep | lgrep) C/C++ファイルを標準とした
-(setq grep-find-command "find . -type f -regex \".*\\.\\(cpp\\|hpp\\|inl\\|inc\\|c\\|h\\)$\" -print0 | xargs -0 -e grep -n -e ")
+(setq grep-find-command "find . -type f -iregex \".*\\.\\(cpp\\|hpp\\|inl\\|inc\\|c\\|h\\)$\" -print0 | xargs -0 -e grep -n -e ")
 ;; (setq grep-find-command "find . -type f -regex \".*\\.\\(cpp\\|hpp\\|inl\\|c\\|h\\)$\" -print0 | xargs -0 -e lgrep -n -Au8 -Ia ")
 
 ;; lgrep command line options
