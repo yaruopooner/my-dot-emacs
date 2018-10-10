@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2018/03/08.10:51:32
+;;; last updated : 2018/10/10.17:28:30
 
 
 ;;==================================================================================================
@@ -31,7 +31,7 @@
 ;; プロキシに対応しており, デフォルトで環境変数 HTTP_PROXY を参照する
 
 
-(defvar google-translate-english-chars "[:ascii:]"
+(defvar google-translate-english-chars "[:ascii:][:punct:]"
   "これらの文字が含まれているときは英語とみなす")
 
 (defun google-translate-enja-or-jaen (&optional string)
@@ -43,7 +43,7 @@
               (current-prefix-arg
                (read-string "Google Translate: "))
               ((use-region-p)
-               (buffer-substring (region-beginning) (region-end)))
+               (buffer-substring-no-properties (region-beginning) (region-end)))
               (t
                (save-excursion
                  (let (s)
@@ -51,7 +51,7 @@
                    (backward-sentence)
                    (setq s (point))
                    (forward-sentence)
-                   (buffer-substring s (point)))))))
+                   (buffer-substring-no-properties s (point)))))))
   (let* ((asciip (string-match
                   (format "\\`[%s]+\\'" google-translate-english-chars)
                   string)))
