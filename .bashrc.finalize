@@ -1,5 +1,5 @@
 # -*- mode: shell-script ; coding: utf-8-unix -*-
-# last updated : 2015/01/25.01:42:21
+# last updated : 2019/09/28.14:33:07
 
 
 git config --global user.name ${git_user}
@@ -20,3 +20,10 @@ git config --global remote.origin.prune true
 
 # git config --global core.filemode true
 git config --global core.ignorecase false
+
+# for Windows
+if $cygwin; then 
+    git config --global core.preloadindex true   # default since v2.1
+    git config --global core.fscache true        # default since v2.8
+    git config --global gc.auto 256
+fi
