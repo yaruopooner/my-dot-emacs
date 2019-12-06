@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2015/06/13.02:26:22
+;;; last updated : 2019/12/06.15:03:14
 
 
 ;;==================================================================================================
@@ -66,6 +66,12 @@
 
 ;; helm-source-buffers-listにおけるバッファ名表示幅
 (setq helm-buffer-max-length 100)
+
+;; fuzzy match enable
+(setq helm-M-x-fuzzy-match t)
+(setq helm-buffers-fuzzy-matching t)
+(setq helm-recentf-fuzzy-match t)
+(setq helm-gtags-fuzzy-matching t)
 
 ;; disable helm command
 (cl-dolist (exclude-func '(write-file
