@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2019/12/06.15:03:14
+;;; last updated : 2019/12/24.13:13:34
 
 
 ;;==================================================================================================
@@ -169,9 +169,9 @@
 
 ;;  とりあえずどのマップにあるかわからない場合は以下で無効化
 
-;; C-z を他のキーに割り当て
-;; (define-key helm-map (kbd "C-;") 'helm-execute-persistent-action)
-;; (define-key helm-map (kbd "M-;") 'helm-execute-persistent-action)
+;; persistent-action を C-j ではなく C-z に割り当て
+(define-key helm-map (kbd "C-j") nil)
+(define-key helm-map (kbd "C-z") 'helm-execute-persistent-action)
 
 
 ;; isearch expand
