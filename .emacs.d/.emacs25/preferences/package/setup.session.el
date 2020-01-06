@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2014/10/13.19:34:32
+;;; last updated : 2019/12/28.00:27:45
 
 
 ;;==================================================================================================
@@ -52,6 +52,9 @@
 
              ;; for helm-show-kill-ring
              (setq session-save-print-spec '(t nil 40000))
+
+             ;; save時の coding-system
+             (setq session-save-file-coding-system 'utf-8)
 
              ;; initialize
              (session-initialize)))

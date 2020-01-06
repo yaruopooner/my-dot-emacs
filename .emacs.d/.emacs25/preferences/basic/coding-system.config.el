@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2017/11/15.11:19:08
+;;; last updated : 2019/12/28.00:47:17
 
 
 ;;==============================================================================
@@ -13,9 +13,10 @@
 ;; そのうちの１つが coding-system で
 ;; coding-system に適切な値が環境設定から取得され
 ;; set-default-coding-systems で設定される
-;; set-language-environment 後に優先させたいエンコーディングを prefer-coding-system で指定する。
-;; 複数回指定可能で、登録順番でプライオリティが決定される。
+;; set-language-environment 後に優先させたいエンコーディングを prefer-coding-system で指定する
+;; 複数回指定可能で、登録順番でプライオリティが決定される
 ;; ※最後に登録したものが highest priority になる
+;; (coding-system-priority-list) を評価すると、現在の優先度がわかる
 ;; 最短設定だと↓のようになる
 ;;
 ;; (setenv "LANG" "ja_JP.UTF-8")
@@ -37,7 +38,7 @@
 
 ;; 通常は↓を設定すれば動作するが、
 ;; dired/grep/shellなどでの日本語表示が化けるので下記のように個別設定を行っている
-;;(prefer-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
 
 ;; prefer-coding-system では BOM 付きの UTF-8 (utf-8-with-signature) を指定してはいけない。
 ;; サブプロセスでの文字コードも変わってしまうので、 grep やコンパイルなどで外部プログラムをちゃんと呼び出せなくなる
@@ -53,16 +54,21 @@
 ;; と説明されているが、23.4においても、これを指定しないと
 ;; ibuffer menu や *TEMPORARY-BUFFER* 系など Emacs 作業用バッファは shift-jis になる
 ;; (set-language-environment "Japanese") で関連付けされているのが shift-jis だから？
-(setq default-buffer-file-coding-system 'utf-8)
+;; (setq default-buffer-file-coding-system 'utf-8)
+;; (setq-default buffer-file-coding-system 'utf-8)
 
 ;; BOM付きにするのはUNIX系では好ましくなさそう
 ;; シェルファイルなどの#! で問題が出そう
 ;;(set-buffer-file-coding-system 'utf-8-with-signature-unix)
-(set-buffer-file-coding-system 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
+;; (set-buffer-file-coding-system 'utf-8)
+;; (set-terminal-coding-system 'utf-8)
+;; (set-keyboard-coding-system 'utf-8)
 ;; (set-selection-coding-system 'utf-16le-dos)
-
+;; (setq default-terminal-coding-system 'utf-8)
+;; (setq default-keyboard-coding-system 'utf-8)
+;; ↓にしないとgrepが正しく動作しない(win32/coding-system.config.el の方だけかも？)
+(setq default-process-coding-system '(japanese-shift-jis-dos . japanese-shift-jis-unix))
+;; (setq default-file-name-coding-system 'utf-8)
 
 ;; GNU Emacs Manual によると
 ;; *-coding-system が nilならば、
