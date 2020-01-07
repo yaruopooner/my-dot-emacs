@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2018/10/10.17:28:30
+;;; last updated : 2020/01/07.14:17:18
 
 
 ;;==================================================================================================
@@ -60,6 +60,13 @@
 
 
 (global-set-key (kbd "C-c t") 'google-translate-enja-or-jaen)
+
+
+;; bugfix patch
+(defadvice google-translate-json-suggestion (around patch-for-google-translate-json-suggestion (json) activate)
+  (let ((info (aref json 7)))
+    (when (and info (> (length info) 0))
+      (aref info 1))))
 
 
 
