@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2019/12/28.00:47:17
+;;; last updated : 2020/01/07.15:02:56
 
 
 ;;==============================================================================
@@ -62,7 +62,8 @@
 ;;(set-buffer-file-coding-system 'utf-8-with-signature-unix)
 ;; (set-buffer-file-coding-system 'utf-8)
 ;; (set-terminal-coding-system 'utf-8)
-;; (set-keyboard-coding-system 'utf-8)
+;; prefer-coding-system でセットされないのでセット
+(set-keyboard-coding-system 'utf-8)
 ;; (set-selection-coding-system 'utf-16le-dos)
 ;; (setq default-terminal-coding-system 'utf-8)
 ;; (setq default-keyboard-coding-system 'utf-8)
