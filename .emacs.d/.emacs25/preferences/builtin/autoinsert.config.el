@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2014/09/25.03:05:23
+;;; last updated : 2020/02/19.21:11:57
 
 
 ;;==============================================================================
@@ -25,11 +25,11 @@
 
 
 (setq auto-insert-alist (append '(
-                                  ("\\.c$"               . "c-mode.c.template")
-                                  ("\\.h$"               . "c-mode.h.template")
-                                  ("\\.cpp$"             . "c++mode.cpp.template")
-                                  ("\\.hpp$"             . "c++mode.hpp.template")
-                                  ("\\.inl$"             . "c++mode.inl.template")
+                                  ("\\.c$"               . "c++-mode.c.template")
+                                  ("\\.h$"               . "c++-mode.h.template")
+                                  ("\\.cpp$"             . "c++-mode.cpp.template")
+                                  ("\\.hpp$"             . "c++-mode.hpp.template")
+                                  ("\\.inl$"             . "c++-mode.inl.template")
                                   ("\\.el$"              . "emacs-lisp-mode.template")
                                   ("\\.\\(txt\\|org\\)$" . "org-mode.template")
                                   ("\\.snpt$"            . "snippet.template")
