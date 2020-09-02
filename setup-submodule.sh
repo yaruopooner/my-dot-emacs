@@ -41,4 +41,14 @@ if [ -d .emacs.d/.emacs26 ]; then
     popd
 fi
 
+if [ -d .emacs.d/.emacs27 ]; then
+    pushd .emacs.d/.emacs27/packages/user/ac-clang
+    git checkout -b develop origin/develop
+    popd
+
+    pushd .emacs.d/.emacs27/packages/user/msvc
+    git checkout -b develop origin/develop
+    popd
+fi
+
 
