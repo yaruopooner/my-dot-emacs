@@ -8,7 +8,7 @@ pushd ${WORK_DIR}
 echo ${WORK_DIR}
 pushd ${WORK_DIR}
 
-declare -r ARCHIVE_NAME="global-6.6.1"
+declare -r ARCHIVE_NAME="global-6.6.4"
 declare -r ARCHIVE_FILE="${ARCHIVE_NAME}.tar.gz"
 
 # for Win32 standalone
