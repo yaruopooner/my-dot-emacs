@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2017/03/28.13:34:26
+;;; last updated : 2020/09/09.02:24:17
 
 
 ;;==============================================================================
@@ -100,6 +100,9 @@
 ;;==============================================================================
 ;; load-path                                                                    
 ;;==============================================================================
+
+;; warning supress for 'Pckage cl is deprecated' 
+(setq byte-compile-warnings '(cl-functions))
 
 
 (add-to-list 'load-path de:path-dot-emacs)
