@@ -1,4 +1,4 @@
-;; -*- mode: lisp-interaction; syntax: elisp; coding: iso-2022-7bit -*-
+;; -*- mode: lisp-interaction; syntax: elisp; coding: iso-2022-7bit; lexical-binding: nil -*-
 
 ;; pdf-preview.el : preview text from the buffer as pdf files through PostScript
 ;; Version 1.0.3

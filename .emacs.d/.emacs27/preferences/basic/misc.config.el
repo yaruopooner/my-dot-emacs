@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2018/10/01.21:10:54
+;;; last updated : 2020/09/08.18:27:33
 
 
 ;;==============================================================================
@@ -242,7 +242,7 @@
 (setq time-stamp-end " \\|$")
 
 ;; 日付時間の出力フォーマット
-(setq time-stamp-format "%04y/%02m/%02d.%02H:%02M:%02S")
+(setq time-stamp-format "%Y/%02m/%02d.%02H:%02M:%02S")
 
 ;; 関数 time-stamp が実行されるタイミング（ファイルを保存する時）
 (add-hook 'write-file-hooks 'time-stamp)

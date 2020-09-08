@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2018/07/30.10:33:51
+;;; last updated : 2020/09/02.21:43:13
 
 
 ;;==============================================================================
@@ -186,7 +186,7 @@
                             dsvn ;melpa
                             powershell ;melpa
                             lua-mode   ;melpa
-                            ;; csv-mode ;; compile error ;gnu
+                            csv-mode    ;gnu
                             bison-mode  ;melpa
                             ;; google-c-style ;melpa
                             ;; summarye       ;melpa
