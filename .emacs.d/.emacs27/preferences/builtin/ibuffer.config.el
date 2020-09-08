@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2016/11/14.15:24:54
+;;; last updated : 2020/09/09.02:16:24
 
 
 ;;==================================================================================================
@@ -158,9 +158,7 @@
              ))
 
 
-;; (custom-set-variables
-;;  '(ibuffer-mode-hook '(ibuffer-auto-mode))
-;;  )
+;; (setq ibuffer-mode-hook '(ibuffer-auto-mode))
 
 
 

@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2019/12/24.13:13:34
+;;; last updated : 2020/09/09.04:24:52
 
 
 ;;==================================================================================================
@@ -93,7 +93,6 @@
                                   ))
 
 ;; find-file自動補完を無効
-;; (custom-set-variables '(helm-ff-auto-update-initial-value nil))
 (setq helm-ff-auto-update-initial-value nil)
 
 
