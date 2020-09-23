@@ -1,4 +1,4 @@
-;;;  -*- coding: utf-8; mode: emacs-lisp; -*-
+;;;  -*- coding: utf-8-unix; mode: emacs-lisp; -*-
 ;;; anything-c-moccur.el
 
 ;; Author: Kenji.Imakado <ken.imakaado -at- gmail.com>

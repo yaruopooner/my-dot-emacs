@@ -450,5 +450,5 @@ against the translation engines that processes per line."
 ;;; text-translator-vars.el ends here
 
 ;; Local Variables:
-;; Coding: utf-8
+;; Coding: utf-8-unix
 ;; End:
