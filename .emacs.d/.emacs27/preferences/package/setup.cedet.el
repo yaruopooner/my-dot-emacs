@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2020/09/09.02:17:20
+;;; last updated : 2020/09/23.13:58:15
 
 
 ;;==================================================================================================
@@ -68,12 +68,12 @@
 
 
 ;; speedbar フレーム設定
-(setq speedbar-frame-parameters
-      (append
-       (list
-        '(width . 50)
-        )
-       speedbar-frame-parameters))
+;; (setq speedbar-frame-parameters
+;;       (append
+;;        (list
+;;         '(width . 50)
+;;         )
+;;        speedbar-frame-parameters))
       
 
 ;; (setq speedbar-frame-parameters '(((minibuffer) (width . 40) (border-width . 0) (menu-bar-lines . 0) (tool-bar-lines . 0) (unsplittable . t) (left-fringe . 0))))
