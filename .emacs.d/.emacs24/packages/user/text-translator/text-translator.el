@@ -551,5 +551,5 @@ Otherwise return a translation site name."
 ;;; text-translator.el ends here
 
 ;; Local Variables:
-;; Coding: utf-8
+;; Coding: utf-8-unix
 ;; End:
