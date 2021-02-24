@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2020/01/07.14:17:18
+;;; last updated : 2021/02/24.18:38:14
 
 
 ;;==================================================================================================
@@ -63,10 +63,15 @@
 
 
 ;; bugfix patch
-(defadvice google-translate-json-suggestion (around patch-for-google-translate-json-suggestion (json) activate)
-  (let ((info (aref json 7)))
-    (when (and info (> (length info) 0))
-      (aref info 1))))
+;; (defadvice google-translate-json-suggestion (around patch-for-google-translate-json-suggestion (json) activate)
+;;   (let ((info (aref json 7)))
+;;     (when (and info (> (length info) 0))
+;;       (aref info 1))))
+
+;; Fix error of "Failed to search TKK"
+(defun google-translate--get-b-d1 ()
+    ;; TKK='427110.1469889687'
+  (list 427110 1469889687))
 
 
 
