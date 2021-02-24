@@ -1,17 +1,11 @@
 # -*- mode: shell-script ; coding: utf-8-unix -*-
-# last updated : 2015/01/11.02:24:57
+# last updated : 2021/02/24.17:07:50
 
 
 # .bashrc.global の環境変数に追加・上書、もしくはローカル環境のみの設定があれば追記
 
 
-export	USR_SHARE_TOOLS_PATH="/cygdrive/c/usr_share_tools"
-
-export  PATH="/cygdrive/c/cygwin20120612/usr/local/share/texlive/2012/bin/win32:${PATH}"
-
-
-
-export	CVSROOT="${USR_SHARE_TOOLS_PATH}/cvsroot"
+export	USR_SHARE_TOOLS_PATH="/cygdrive/d/usr_share_tools"
 
 
 #export  LANG=""
@@ -25,12 +19,12 @@ export	https_proxy="https://proxy.server.com:8080"
 
 export  git_user="user_name"
 export  git_email="user_name@mail.com"
-export  git_password="password"
-if $cygwin; then 
-    export git_credential_helper=winstore
-else
-    export git_credential_helper=store
-fi
+# export  git_password="password"
+# if $cygwin; then 
+#     export git_credential_helper=winstore
+# else
+#     export git_credential_helper=store
+# fi
 
 
 #export  GTAGSFORCECPP=""

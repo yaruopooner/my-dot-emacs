@@ -1,19 +1,15 @@
 # -*- mode: shell-script ; coding: utf-8-unix -*-
-# last updated : 2019/09/28.14:33:07
+# last updated : 2021/02/24.17:05:48
 
 
 git config --global user.name ${git_user}
 git config --global user.email ${git_email}
-git config --global user.password ${git_password}
 
 git config --global http.proxy ${http_proxy}
 git config --global https.proxy ${https_proxy}
-git config --global url."https://".insteadOf git://
 
-# git config --global credential.username ${git_user}
-
-git config --global credential.helper ${git_credential_helper}
-
+git config --global --replace-all url."github:".insteadOf https://github.com/
+git config --global --add url."github:".insteadOf git@github.com:
 
 # git config --global fetch.prune true
 git config --global remote.origin.prune true
