@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2021/02/24.18:38:14
+;;; last updated : 2021/03/23.01:30:28
 
 
 ;;==================================================================================================
@@ -62,7 +62,7 @@
 (global-set-key (kbd "C-c t") 'google-translate-enja-or-jaen)
 
 
-;; bugfix patch
+;; bugfix patch (version:20200809.1430 ではすでに修正済みの模様)
 ;; (defadvice google-translate-json-suggestion (around patch-for-google-translate-json-suggestion (json) activate)
 ;;   (let ((info (aref json 7)))
 ;;     (when (and info (> (length info) 0))

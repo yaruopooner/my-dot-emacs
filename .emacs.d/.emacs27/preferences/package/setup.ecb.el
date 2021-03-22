@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2014/07/06.15:25:21
+;;; last updated : 2020/09/09.02:19:20
 
 
 ;;==================================================================================================
@@ -61,14 +61,13 @@
       (ecb-deactivate)
     (ecb-activate)))
 
-(custom-set-variables
+(setq ecb-options-version "2.40")
  ;; custom-set-variables was added by Custom -- don't edit or cut/paste it!
  ;; Your init file should contain only one such instance.
- '(ecb-options-version "2.40"))
-(custom-set-faces
- ;; custom-set-faces was added by Custom -- don't edit or cut/paste it!
- ;; Your init file should contain only one such instance.
- )
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom -- don't edit or cut/paste it!
+;;  ;; Your init file should contain only one such instance.
+;;  )
 
 
 

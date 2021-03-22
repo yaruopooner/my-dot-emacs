@@ -3,11 +3,21 @@
 
 # git submodule init
 # git config -f .gitmodules submodule..emacs.d/.emacs24/packages/user/ac-clang.branch develop
+# git config -f .gitmodules submodule..emacs.d/.emacs24/packages/user/ac-clang.ignore all
 # git config -f .gitmodules submodule..emacs.d/.emacs24/packages/user/msvc.branch develop
+# git config -f .gitmodules submodule..emacs.d/.emacs24/packages/user/msvc.ignore all
 # git config -f .gitmodules submodule..emacs.d/.emacs25/packages/user/ac-clang.branch develop
+# git config -f .gitmodules submodule..emacs.d/.emacs25/packages/user/ac-clang.ignore all
 # git config -f .gitmodules submodule..emacs.d/.emacs25/packages/user/msvc.branch develop
+# git config -f .gitmodules submodule..emacs.d/.emacs25/packages/user/msvc.ignore all
 # git config -f .gitmodules submodule..emacs.d/.emacs26/packages/user/ac-clang.branch develop
+# git config -f .gitmodules submodule..emacs.d/.emacs26/packages/user/ac-clang.ignore all
 # git config -f .gitmodules submodule..emacs.d/.emacs26/packages/user/msvc.branch develop
+# git config -f .gitmodules submodule..emacs.d/.emacs26/packages/user/msvc.ignore all
+# git config -f .gitmodules submodule..emacs.d/.emacs27/packages/user/ac-clang.branch develop
+# git config -f .gitmodules submodule..emacs.d/.emacs27/packages/user/ac-clang.ignore all
+# git config -f .gitmodules submodule..emacs.d/.emacs27/packages/user/msvc.branch develop
+# git config -f .gitmodules submodule..emacs.d/.emacs27/packages/user/msvc.ignore all
 # git submodule update --recursive
 git submodule update --init --recursive --remote --merge
 

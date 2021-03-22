@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2019/12/24.13:13:34
+;;; last updated : 2020/09/09.04:29:22
 
 
 ;;==================================================================================================
@@ -11,6 +11,7 @@
 ;; (add-to-list 'load-path (expand-file-name "anything/" de:path-plugins))
 
 
+;; (setq helm-source-occur nil)
 
 
 ;;------------------------------------------------------------------------------
@@ -93,7 +94,6 @@
                                   ))
 
 ;; find-file自動補完を無効
-;; (custom-set-variables '(helm-ff-auto-update-initial-value nil))
 (setq helm-ff-auto-update-initial-value nil)
 
 

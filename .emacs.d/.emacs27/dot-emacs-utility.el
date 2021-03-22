@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2014/10/03.01:38:27
+;;; last updated : 2020/09/09.03:47:50
 
 
 ;;==============================================================================
@@ -100,7 +100,7 @@
 ;; 指定ディレクトリ以下を再帰的に探索、ディレクトリの絶対パスリストを生成する
 ;; ※ '.'で始まるディレクトリは除外される
 (defun deu:add-to-path-list-directory-recursive (result-list top-directory)
-  (add-to-list result-list top-directory)
+  (add-to-list result-list top-directory t)
   (let ((target-directories (list top-directory)))
     (cl-dolist (directory target-directories)
       (let ((child-files (directory-files directory t)))
@@ -108,7 +108,7 @@
           (when (deu:valid-load-path-a-p apath)
             ;;(message "absolute path = %s" apath)
             (nconc target-directories (list apath))
-            (add-to-list result-list apath))))))
+            (add-to-list result-list apath t))))))
   ;;(message "result-list = %s" result-list)
   result-list)
 
