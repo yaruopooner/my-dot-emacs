@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2020/09/09.04:29:22
+;;; last updated : 2021/03/23.12:43:54
 
 
 ;;==================================================================================================
@@ -11,7 +11,7 @@
 ;; (add-to-list 'load-path (expand-file-name "anything/" de:path-plugins))
 
 
-;; (setq helm-source-occur nil)
+(setq helm-source-occur nil)
 
 
 ;;------------------------------------------------------------------------------
