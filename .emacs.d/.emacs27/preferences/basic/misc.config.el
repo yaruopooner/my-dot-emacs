@@ -1,5 +1,5 @@
 ;;; -*- mode: emacs-lisp ; coding: utf-8-unix -*-
-;;; last updated : 2020/09/08.18:27:33
+;;; last updated : 2021/05/14.12:18:32
 
 
 ;;==============================================================================
@@ -55,6 +55,9 @@
 
 ;; ミニバッファ使用中に、ミニバッファを用いるコマンド実行を許可する
 (setq enable-recursive-minibuffers t)
+
+;; ミニバッファ履歴の重複を削除
+(setq history-delete-duplicates t)
 
 
 
