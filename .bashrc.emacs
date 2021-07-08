@@ -1,5 +1,5 @@
 # -*- mode: shell-script ; coding: utf-8-unix -*-
-# last updated : 2020/08/19.00:24:32
+# last updated : 2021/04/08.15:03:08
 
 # cygwin version 1.7x~
 
@@ -37,11 +37,11 @@ if $cygwin; then
     # alias   emacs32=emacs32-251-ime
     # alias   emacs64=emacs64-245-ime
     # alias   emacs64=emacs64-252-ime
-    alias   emacs64=emacs64-253-ime
+    # alias   emacs64=emacs64-253-ime
     # alias   emacs64=emacs64-261-ime
     # alias   emacs64=emacs64-262-ime
     # alias   emacs64=emacs64-263-ime
-    # alias   emacs64=emacs64-271-ime
+    alias   emacs64=emacs64-271-ime
 
     # alias   emacs=emacs32
     alias   emacs=emacs64
