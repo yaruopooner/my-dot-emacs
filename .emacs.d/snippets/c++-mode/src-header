@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: src-header mode: {LANGUAGE} ; coding:{CODING-SYSTEM} ; time-stamp
+# key: src-header
+# --
+/* -*- mode: ${1:c++} ; coding: ${2:utf-8-dos} -*- */
+/*  last updated : 2021/07/09.12:12:08 */
+$0
