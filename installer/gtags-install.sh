@@ -8,7 +8,7 @@ pushd ${WORK_DIR}
 echo ${WORK_DIR}
 pushd ${WORK_DIR}
 
-declare -r ARCHIVE_NAME="global-6.6.5"
+declare -r ARCHIVE_NAME="global-6.6.7"
 declare -r ARCHIVE_FILE="${ARCHIVE_NAME}.tar.gz"
 
 # for Win32 standalone
@@ -28,6 +28,7 @@ fi
 tar -zxvf ${ARCHIVE_FILE}
 pushd ./${ARCHIVE_NAME}
 ./configure
+#./configure --disable-gtagscscope
 make -j8 install
 
 popd
