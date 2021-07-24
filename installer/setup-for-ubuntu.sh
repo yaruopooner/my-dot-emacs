@@ -8,9 +8,10 @@ sudo -E apt -y install gnome-color-chooser
 
 sudo -E apt -y install fonts-inconsolata
 
-sudo -E apt -y install git
-sudo -E apt -y install subversion
-sudo -E apt -y install cmake
+sudo -E apt -y install git subversion
+sudo -E apt -y install make cmake
+sudo -E apt -y install gcc g++
+
 
 # sudo -E apt -y install build-essential
 

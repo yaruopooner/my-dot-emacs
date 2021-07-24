@@ -2,8 +2,8 @@
 #! /bin/sh
 
 
-declare -r EMACS_ARCHIVE_URI="http://ftp.gnu.org/gnu/emacs/emacs-26.1.tar.xz"
-# declare -r EMACS_ARCHIVE_URI="http://ftp.gnu.org/gnu/emacs/emacs-25.3.tar.xz"
+declare -r EMACS_ARCHIVE_URI="http://ftp.gnu.org/gnu/emacs/emacs-27.2.tar.xz"
+# declare -r EMACS_ARCHIVE_URI="http://ftp.gnu.org/gnu/emacs/emacs-26.1.tar.xz"
 declare -r EMACS_ARCHIVE_NAME=$( basename "${EMACS_ARCHIVE_URI}" )
 declare -r EMACS_VERSION_NAME=$( echo "${EMACS_ARCHIVE_NAME}" | sed -r "s/(emacs-[0-9]+\.[0-9]+).*/\1/" )
 
@@ -23,6 +23,8 @@ sudo -E apt -y install libgtk-3-dev
 sudo -E apt -y install libxpm-dev libjpeg-dev libgif-dev libtiff5-dev
 sudo -E apt -y install libncurses5-dev
 
+# for ubuntu 20.10 passed
+sudo -E apt -y install libgnutls28-dev
 
 ./configure --with-modules --without-compress-install
 
