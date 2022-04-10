@@ -30,3 +30,9 @@
 	path = .emacs.d/.emacs27/packages/user/msvc
 	url = https://github.com/yaruopooner/msvc.git
 	ignore = all
+[submodule ".emacs.d/.emacs28/packages/user/ac-clang"]
+	path = .emacs.d/.emacs28/packages/user/ac-clang
+	url = https://github.com/yaruopooner/ac-clang.git
+[submodule ".emacs.d/.emacs28/packages/user/msvc"]
+	path = .emacs.d/.emacs28/packages/user/msvc
+	url = https://github.com/yaruopooner/msvc.git

@@ -18,6 +18,10 @@
 # git config -f .gitmodules submodule..emacs.d/.emacs27/packages/user/ac-clang.ignore all
 # git config -f .gitmodules submodule..emacs.d/.emacs27/packages/user/msvc.branch develop
 # git config -f .gitmodules submodule..emacs.d/.emacs27/packages/user/msvc.ignore all
+# git config -f .gitmodules submodule..emacs.d/.emacs28/packages/user/ac-clang.branch develop
+# git config -f .gitmodules submodule..emacs.d/.emacs28/packages/user/ac-clang.ignore all
+# git config -f .gitmodules submodule..emacs.d/.emacs28/packages/user/msvc.branch develop
+# git config -f .gitmodules submodule..emacs.d/.emacs28/packages/user/msvc.ignore all
 # git submodule update --recursive
 git submodule update --init --recursive --remote --merge
 
@@ -57,6 +61,16 @@ if [ -d .emacs.d/.emacs27 ]; then
     popd
 
     pushd .emacs.d/.emacs27/packages/user/msvc
+    git checkout -b develop origin/develop
+    popd
+fi
+
+if [ -d .emacs.d/.emacs28 ]; then
+    pushd .emacs.d/.emacs28/packages/user/ac-clang
+    git checkout -b develop origin/develop
+    popd
+
+    pushd .emacs.d/.emacs28/packages/user/msvc
     git checkout -b develop origin/develop
     popd
 fi
